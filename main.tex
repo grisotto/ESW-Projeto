@@ -69,11 +69,13 @@ Projetar e rodar experimento com todas ou um subconjunto e comparar.
 \newpage
 
 \section{Referencial EvoSuite}
-EvoSuite é uma ferramenta de geração de suítes de testes com alta cobertura e produz asserções. O EvoSuite usa uma abordagem baseada em pesquisa, integrando técnicas atuais tais como hybrid search, dynamic symbolic execution e testability transformation.
+EvoSuite é uma ferramenta de geração de suítes de testes com alta cobertura e produz asserções \cite{fraser2011evosuite}. O EvoSuite usa uma abordagem baseada em pesquisa, integrando técnicas atuais tais como hybrid search, dynamic symbolic execution e testability transformation.
 
 \textbf{Geração de suítes de testes:} EvoSuite usa abordagem de busca evolucionária que evolui os conjuntos de casos de testes de acorodo com a um critério de cobertura. A otimização prioriza o critério de cobertura ao invés objetivos locais que não resultam em diversidade influenciada pela ordem, dificuldade ou inviabilidade de objetivos individuais.
 
-\textbf{Mutações baseadas em gerações de acerssões:} EvoSuite utiliza teste de mutação para produzir um conjunto reduzido de que maximiza a inclusão de defeitos em uma classe que são revelados pelos casos de testes. Isso ajuda dando feedback aos desenvolvedores de quais defeitos devem ser tratados 
+\textbf{Mutações baseadas em gerações de acerssões:} EvoSuite utiliza teste de mutação para produzir um conjunto reduzido de que maximiza a inclusão de defeitos em uma classe que são revelados pelos casos de testes. Isso ajuda dando feedback aos desenvolvedores de quais defeitos devem ser tratados, além de o atual comportamento para evitar regressões.
+
+
 
 \section{Meta-Heurísticas}
 Meta-heurística é um subcampo primário da otimização estocática, a qual consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a melhor possível) para problemas reconhecidamente difíceis \cite{luke2009essentials}. \citeauthor{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos. 
