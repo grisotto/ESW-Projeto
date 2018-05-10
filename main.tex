@@ -2,6 +2,9 @@
 \usepackage[utf8]{inputenc} % sempre salve seus arquivos como UTF8
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
+%Paulo - adicona esta linha
+\usepackage[backend=biber, doi=true, maxbibnames=9, maxcitenames=2]{biblatex}
+
 
 \usepackage[left=2.5cm,right=2cm,top=2cm,bottom=2.5cm]{geometry}
 \usepackage{amsmath}
@@ -18,6 +21,8 @@
 \usepackage{mathptmx}
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
+%Qual linha?
+\bibliography{general.bib}
 
 % teoremas, lemas, etc...
 \newtheorem{questao}{Questão}
@@ -32,31 +37,8 @@
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 \title{Otimização Combinatória em  \\ testes}
-\author{Rafael Grisotto e Souza - RA 192765\\ Vinicius \\ Paulo}
+\author{Rafael Grisotto e Souza - RA 192765\\ Vinicius \\ Paulo Henrique Carvalho de Morais - RA 192877}
 
-\begin{filecontents*}{general.bib}
-@article{louridas2006static,
-  title={Static code analysis},
-  author={Louridas, Panagiotis},
-  journal={IEEE Software},
-  volume={23},
-  number={4},
-  pages={58--61},
-  year={2006},
-  publisher={IEEE}
-}
-@inproceedings{travassos2014software,
-  title={Software Defects: Stay Away from Them. Do Inspections!},
-  author={Travassos, Guilherme Horta},
-  booktitle={Quality of Information and Communications Technology (QUATIC), 2014 9th International Conference on the},
-  pages={1--7},
-  year={2014},
-  organization={IEEE}
-}
-\end{filecontents*}
-
-\addbibresource{general.bib}
-\nocite{*}
 
 
 \begin{document}
@@ -77,7 +59,7 @@ Alternativas para melhorar os resultados: meta heurística a, b, c, ...
 
 
 Trabalho 2 começa aqui:
-
+\cite{arcuri2017restful}
 Projetar e rodar experimento com todas ou um subconjunto e comparar.
 
 
@@ -87,10 +69,14 @@ Projetar e rodar experimento com todas ou um subconjunto e comparar.
 \newpage
 
 \section{Referencial EvoSuite}
+EvoSuite é uma ferramenta de geração de suítes de testes com alta cobertura e produz asserções. O EvoSuite usa uma abordagem baseada em pesquisa, integrando técnicas atuais tais como hybrid search, dynamic symbolic execution e testability transformation.
 
+\textbf{Geração de suítes de testes:} EvoSuite usa abordagem de busca evolucionária que evolui os conjuntos de casos de testes de acorodo com a um critério de cobertura. A otimização prioriza o critério de cobertura ao invés objetivos locais que não resultam em diversidade influenciada pela ordem, dificuldade ou inviabilidade de objetivos individuais.
 
+\textbf{Mutações baseadas em gerações de acerssões:} EvoSuite utiliza teste de mutação para produzir um conjunto reduzido de que maximiza a inclusão de defeitos em uma classe que são revelados pelos casos de testes. Isso ajuda dando feedback aos desenvolvedores de quais defeitos devem ser tratados 
 
-
+\section{Meta-Heurísticas}
+Meta-heurística é um subcampo primário da otimização estocática, a qual consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a melhor possível) para problemas reconhecidamente difíceis \cite{luke2009essentials}. \citeauthor{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos. 
 
 \end{document}
 
