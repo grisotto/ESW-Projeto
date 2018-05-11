@@ -16,7 +16,10 @@
 \usepackage{mathtools}
 \usepackage{fancybox}
 \usepackage{tikz}
-
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\usepackage{csquotes}
+\usepackage{xcolor}  % Coloured text etc.
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 % load times font
 \usepackage{mathptmx}
 \usepackage[scaled=.90]{helvet}
@@ -35,6 +38,12 @@
 \newcommand{\mdc}[1]{\mathrm{mdc}(#1)}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+% 
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=gray,backgroundcolor=gray!25,bordercolor=gray,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 
 \title{Otimização Combinatória em  \\ testes}
 \author{Rafael Grisotto e Souza - RA 192765\\ Vinicius \\ Paulo Henrique Carvalho de Morais - RA 192877}
@@ -62,7 +71,8 @@ Trabalho 2 começa aqui:
 \cite{arcuri2017restful}
 Projetar e rodar experimento com todas ou um subconjunto e comparar.
 
-
+\newpage
+\listoftodos[Notes]
 
 
 
@@ -71,14 +81,14 @@ Projetar e rodar experimento com todas ou um subconjunto e comparar.
 \section{Referencial EvoSuite}
 
 EvoSuite é uma ferramenta de geração de suítes de testes com alta cobertura e produz asserções. O EvoSuite usa uma abordagem baseada em pesquisa, integrando técnicas atuais tais como hybrid
-search, dynamic symbolic execution e testability transformation. \textbf{citar!!}
+search, dynamic symbolic execution e testability transformation. \change{citar!!}
 
 \textbf{Geração de suítes de testes:} EvoSuite usa abordagem de busca evolucionária que evolui os conjuntos de casos de testes de acordo com a um critério de cobertura. A otimização prioriza
 o critério de cobertura ao invés objetivos locais que não resultam em diversidade influenciada pela ordem, dificuldade ou inviabilidade de objetivos individuais.
 
 Otimizando com critério de convergência do que por convergência individual consegue resultados que não são influenciados pela ordem ou pela dificuldade ou inflexibilidade de convergência
 individuais. Estes são alguns dos problemas, pois alguns objetivos são mais difíceis que outros e existe o recurso limitado de tempo para testes.
-
+\improvement{Expandir para como ele gera os testes}
 
 \textbf{Mutações baseadas em gerações de acerssões:} EvoSuite utiliza teste de mutação para produzir um conjunto reduzido de que maximiza a inclusão de defeitos em uma classe que são revelados pelos casos de testes. Isso ajuda dando feedback aos desenvolvedores de quais defeitos devem ser tratados 
 
@@ -86,7 +96,7 @@ individuais. Estes são alguns dos problemas, pois alguns objetivos são mais di
 No \textit{EvoSuite} uma solução candidata consistem de um número variável de casos de teste individuais. Onde, cada um destes casos de teste é uma sequencia de chamadas do método repetidas
 com a variação do comprimento e aperfeiçoando a unidade em teste e definido objetos complexos para fazer isso.  
 
-O \textit{fitness} é calculado por um critério de convergência por completo. \textbf{explicar melhor} 
+O \textit{fitness} é calculado por um critério de convergência por completo. \improvement{explicar melhor} 
 
 
 
@@ -94,10 +104,13 @@ O \textit{fitness} é calculado por um critério de convergência por completo. 
 
 \section{Meta-Heurísticas}
 Meta-heurística é um subcampo primário da otimização estocástica, a qual consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a melhor possível) para problemas reconhecidamente difíceis. \citeauthor{luke2009essentials} \cite{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos. 
+\info{Precisa falar das metaheuristicas, quais iremos usar, algum por que de cada uma e depois dizer como elas estão organizadas na seção}
 
 \subsection{GA}
 \label{sec:alg_genetic}
 
+\info{Esta quase completa, para mim falta apenas colocar mais variações}
+\improvement{Deixar mais fluido o texto aqui}
 Um algoritmo genético simula a seleção natural, onde cada indivíduo compete com os outros para sobreviver com base em sua aptidão (\emph{fitness}). Os indivíduos que sobrevivem ao passo de
 seleção passam por operações genéticas (cruzamentos e mutações), simulando o que ocorre na biologia, para assim criar uma nova população.
 
@@ -164,7 +177,7 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
         infactíveis gerados na recombinação. 
 
 \subsection{GRASP}
-
+\improvement{Falta bastante coisa do graps, principalmente sobre suas variações}
     O GRASP (Greedy Randomized Adaptive Search Procedure) para problemas de otimização combinatória foi introduzida por Feo e Resende \cite{feo1989probabilistic}. O GRASP tem sua iteração
     primeiramente a construção de uma solução inicial a partir de uma heurística construtiva gulosa e aleatória. Depois, é realizado uma busca local com intenção de explorar a vizinhança da
     solução inicial até atingir um mínimo local do espaço de soluções. Após um critério de parada como quantidade de iterações ou tempo de processamento o GRASP devolve a melhor solução
@@ -195,7 +208,7 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
 
 
 \subsection{BRKGA}
-
+\change{A descrição do BRKGA esta a mais incompleta. Precisa adicionar bastante coisa e descrever melhor}
 O BRKGA (biased random-key genetic algorithm)\cite{gonccalves2011biased} é uma metaheuristica para encontrar uma solução ótima ou próxima da ótima. É uma variação do RKGA
 (random-key genetic algorithms) \cite{bean1994genetic} e se obtém uma solução viável para o problema através da decodificação de uma solução codificada. A solução codificada são vetores de
 chaves aleatórias em um intervalo de números reais continuo $(0,1]$ e a decodificação é uma etapa que mapeia um vetor de chaves aleatórias numa solução do problema de otimização e calcula o
@@ -211,7 +224,7 @@ De forma resumida, a definição de algumas características do BRKGA:
 \end{itemize}
 
 \subsection{Busca Tabu}
-
+\info{Aqui precisamos apenas deixar fluido. acho que não precisa de mais conteúdo}
 A Busca Tabu é uma busca local que permite movimentos que podem não melhorar a solução atual. Para evitar ciclos, existe um mecanismo chamado lista tabu onde os últimos movimentos realizados
 ficam armazenados por um dado número de iterações, chamado \textit{tenure}. Os movimentos que estão na lista de tabus ficam proibidos, a menos que um dado critério de aspiração seja
 satisfeito. Caso um critério de aspiração seja satisfeito o movimento é permitido. A heurística foi originalmente proposta por \citeauthor{glover1986future} \cite{glover1986future} e nos
