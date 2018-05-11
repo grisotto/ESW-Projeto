@@ -69,16 +69,31 @@ Projetar e rodar experimento com todas ou um subconjunto e comparar.
 \newpage
 
 \section{Referencial EvoSuite}
-EvoSuite é uma ferramenta de geração de suítes de testes com alta cobertura e produz asserções. O EvoSuite usa uma abordagem baseada em pesquisa, integrando técnicas atuais tais como hybrid search, dynamic symbolic execution e testability transformation.
 
-\textbf{Geração de suítes de testes:} EvoSuite usa abordagem de busca evolucionária que evolui os conjuntos de casos de testes de acorodo com a um critério de cobertura. A otimização prioriza o critério de cobertura ao invés objetivos locais que não resultam em diversidade influenciada pela ordem, dificuldade ou inviabilidade de objetivos individuais.
+EvoSuite é uma ferramenta de geração de suítes de testes com alta cobertura e produz asserções. O EvoSuite usa uma abordagem baseada em pesquisa, integrando técnicas atuais tais como hybrid
+search, dynamic symbolic execution e testability transformation. \textbf{citar!!}
+
+\textbf{Geração de suítes de testes:} EvoSuite usa abordagem de busca evolucionária que evolui os conjuntos de casos de testes de acordo com a um critério de cobertura. A otimização prioriza
+o critério de cobertura ao invés objetivos locais que não resultam em diversidade influenciada pela ordem, dificuldade ou inviabilidade de objetivos individuais.
+
+Otimizando com critério de convergência do que por convergência individual consegue resultados que não são influenciados pela ordem ou pela dificuldade ou inflexibilidade de convergência
+individuais. Estes são alguns dos problemas, pois alguns objetivos são mais difíceis que outros e existe o recurso limitado de tempo para testes.
+
 
 \textbf{Mutações baseadas em gerações de acerssões:} EvoSuite utiliza teste de mutação para produzir um conjunto reduzido de que maximiza a inclusão de defeitos em uma classe que são revelados pelos casos de testes. Isso ajuda dando feedback aos desenvolvedores de quais defeitos devem ser tratados 
+
+
+No \textit{EvoSuite} uma solução candidata consistem de um número variável de casos de teste individuais. Onde, cada um destes casos de teste é uma sequencia de chamadas do método repetidas
+com a variação do comprimento e aperfeiçoando a unidade em teste e definido objetos complexos para fazer isso.  
+
+O \textit{fitness} é calculado por um critério de convergência por completo. \textbf{explicar melhor} 
+
+
 
 \newpage
 
 \section{Meta-Heurísticas}
-Meta-heurística é um subcampo primário da otimização estocática, a qual consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a melhor possível) para problemas reconhecidamente difíceis. \citeauthor{luke2009essentials} \cite{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos. 
+Meta-heurística é um subcampo primário da otimização estocástica, a qual consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a melhor possível) para problemas reconhecidamente difíceis. \citeauthor{luke2009essentials} \cite{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos. 
 
 \subsection{GA}
 \label{sec:alg_genetic}
@@ -197,9 +212,14 @@ De forma resumida, a definição de algumas características do BRKGA:
 
 \subsection{Busca Tabu}
 
-A Busca Tabu é uma busca local que permite movimentos que podem não melhorar a solução atual. Para evitar ciclos, existe um mecanismo chamado lista tabu onde os últimos movimentos
-realizados ficam armazenados por um dado número de iterações, chamado \textit{tenure}. Os movimentos que estão na lista de tabus ficam proibidos, a menos que um dado critério de aspiração
-seja satisfeito. Caso um critério de aspiração seja satisfeito o movimento é permitido. 
+A Busca Tabu é uma busca local que permite movimentos que podem não melhorar a solução atual. Para evitar ciclos, existe um mecanismo chamado lista tabu onde os últimos movimentos realizados
+ficam armazenados por um dado número de iterações, chamado \textit{tenure}. Os movimentos que estão na lista de tabus ficam proibidos, a menos que um dado critério de aspiração seja
+satisfeito. Caso um critério de aspiração seja satisfeito o movimento é permitido. A heurística foi originalmente proposta por \citeauthor{glover1986future} \cite{glover1986future} e nos
+últimos 20 anos centenas de artigos utilizam Busca Tabu em diversos problemas de combinatória e mostrando ser bastante eficaz com resultados bem próximos do ótimo ou conseguindo o ótimo
+\cite{gendreau2010handbook}.
+
+Na Busca Tabu precisamos definir muito bem o espaço de busca e a estrutura da vizinhança. Definir os critérios da restrição de movimentos. Pode ser complicado deixar a metaheuristica
+suficientemente genética para ser usada no framework EvoSuite, porém podemos pensar em casos não muito gerais e aplicar mecanismos de busca por intensificação e por diversidade.
 
     \subsubsection{Busca \textit{Ternure}}
 
@@ -255,7 +275,12 @@ seja satisfeito. Caso um critério de aspiração seja satisfeito o movimento é
         operador de busca local. A frequência não é reiniciada quando a busca recomeça. Quando a busca reinicia uma nova solução inicial é construída, a heurística construtiva é escolhida
         aleatoriamente sendo que as duas tem a mesma probabilidade de serem escolhidas. 
 
-    \subsubsection{Descrição da lista tabú}
+    \subsubsection{Diversificação Continua}
+
+        Integra diversificação considerando diretamente no processo normal de busca. Conseguindo isso a partir do calculo da influencia dos possíveis movimentos adicionando ao objetivo um termo pequeno
+        relacionado a frequência dos componentes.
+
+    \subsubsection{Descrição da lista Tabu}
 
         Tabu é uma memória de curto prazo usado pelo operador de busca local para evitar de repetir movimentos ou desfazer movimentos que foram feitos a no máximo um dado número de iterações. Neste
         trabalho, a lista tabu foi implementada como um fila duplamente terminada. Um número fixo de elementos é permitido estar na fila a cada instante, sendo assim, cada elemento pode ficar por um

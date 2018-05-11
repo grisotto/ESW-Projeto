@@ -1980,6 +1980,9 @@
     <bcf:citekey order="4">feo1989probabilistic</bcf:citekey>
     <bcf:citekey order="5">gonccalves2011biased</bcf:citekey>
     <bcf:citekey order="6">bean1994genetic</bcf:citekey>
+    <bcf:citekey order="7">glover1986future</bcf:citekey>
+    <bcf:citekey order="8">glover1986future</bcf:citekey>
+    <bcf:citekey order="9">gendreau2010handbook</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

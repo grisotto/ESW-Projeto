@@ -109,6 +109,65 @@
       \field{pages}{67\bibrangedash 71}
       \range{pages}{5}
     \endentry
+    \entry{gendreau2010handbook}{book}{}
+      \name{author}{2}{}{%
+        {{hash=d4ebdd3fdc985c36f68c8295c5664c74}{%
+           family={Gendreau},
+           familyi={G\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=156d517208f70e145503aa8b5ec9849b}{%
+           family={Potvin},
+           familyi={P\bibinitperiod},
+           given={Jean-Yves},
+           giveni={J\bibinithyphendelim Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{428631794113b74d16ac1f3a6f241136}
+      \strng{fullhash}{428631794113b74d16ac1f3a6f241136}
+      \strng{bibnamehash}{428631794113b74d16ac1f3a6f241136}
+      \strng{authorbibnamehash}{428631794113b74d16ac1f3a6f241136}
+      \strng{authornamehash}{428631794113b74d16ac1f3a6f241136}
+      \strng{authorfullhash}{428631794113b74d16ac1f3a6f241136}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Handbook of metaheuristics}
+      \field{volume}{2}
+      \field{year}{2010}
+    \endentry
+    \entry{glover1986future}{article}{}
+      \name{author}{1}{}{%
+        {{hash=dc17e11972df8b60f2996162604f37ac}{%
+           family={Glover},
+           familyi={G\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{dc17e11972df8b60f2996162604f37ac}
+      \strng{fullhash}{dc17e11972df8b60f2996162604f37ac}
+      \strng{bibnamehash}{dc17e11972df8b60f2996162604f37ac}
+      \strng{authorbibnamehash}{dc17e11972df8b60f2996162604f37ac}
+      \strng{authornamehash}{dc17e11972df8b60f2996162604f37ac}
+      \strng{authorfullhash}{dc17e11972df8b60f2996162604f37ac}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& operations research}
+      \field{number}{5}
+      \field{title}{Future paths for integer programming and links to artificial intelligence}
+      \field{volume}{13}
+      \field{year}{1986}
+      \field{pages}{533\bibrangedash 549}
+      \range{pages}{17}
+    \endentry
     \entry{gonccalves2011biased}{article}{}
       \name{author}{2}{}{%
         {{hash=2f7d9247105701fc6d8357117efcda5a}{%
