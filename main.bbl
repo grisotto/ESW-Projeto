@@ -109,6 +109,72 @@
       \field{pages}{67\bibrangedash 71}
       \range{pages}{5}
     \endentry
+    \entry{fraser2011evosuite}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=fc66f39b83d69c05a49d023f90b98586}{%
+           family={Fraser},
+           familyi={F\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod}}}%
+        {{hash=ce60719b000244b24fc4e01f2153d73c}{%
+           family={Arcuri},
+           familyi={A\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{fullhash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{bibnamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authorbibnamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authornamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authorfullhash}{d95dbcd4db61e2a19f505ca237691110}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 19th ACM SIGSOFT symposium and the 13th European conference on Foundations of software engineering}
+      \field{title}{Evosuite: automatic test suite generation for object-oriented software}
+      \field{year}{2011}
+      \field{pages}{416\bibrangedash 419}
+      \range{pages}{4}
+    \endentry
+    \entry{fraser2013whole}{article}{}
+      \name{author}{2}{}{%
+        {{hash=fc66f39b83d69c05a49d023f90b98586}{%
+           family={Fraser},
+           familyi={F\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod}}}%
+        {{hash=ce60719b000244b24fc4e01f2153d73c}{%
+           family={Arcuri},
+           familyi={A\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{fullhash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{bibnamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authorbibnamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authornamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authorfullhash}{d95dbcd4db61e2a19f505ca237691110}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Software Engineering}
+      \field{number}{2}
+      \field{title}{Whole test suite generation}
+      \field{volume}{39}
+      \field{year}{2013}
+      \field{pages}{276\bibrangedash 291}
+      \range{pages}{16}
+    \endentry
     \entry{gendreau2010handbook}{book}{}
       \name{author}{2}{}{%
         {{hash=d4ebdd3fdc985c36f68c8295c5664c74}{%

@@ -112,15 +112,26 @@ Para determinar a importância e efetividade das asserções, o EvoSuite aplica 
 
 \newpage
 
-\section{Meta-Heurísticas}
-Meta-heurística é um subcampo primário da otimização estocástica, a qual consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a melhor possível) para problemas reconhecidamente difíceis. \citeauthor{luke2009essentials} \cite{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos. 
+\section{Meta-Heurísticas} 
+
+Meta-heurística é um subcampo primário da otimização estocástica, a qual consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a
+melhor possível) para problemas reconhecidamente difíceis. \citeauthor{luke2009essentials} \cite{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos
+uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos.  
+
+
 \info{Precisa falar das metaheuristicas, quais iremos usar, algum por que de cada uma e depois dizer como elas estão organizadas na seção}
 
-\subsection{GA}
+
+\subsection{swarm particiles otimization}
+
+\subsection{articficial bee colony}
+
+\subsection{firefly algorithm}
+\subsection{Algoritmo Genético}
 \label{sec:alg_genetic}
 
-\info{Esta quase completa, para mim falta apenas colocar mais variações}
-\improvement{Deixar mais fluido o texto aqui}
+
+
 Um algoritmo genético simula a seleção natural, onde cada indivíduo compete com os outros para sobreviver com base em sua aptidão (\emph{fitness}). Os indivíduos que sobrevivem ao passo de
 seleção passam por operações genéticas (cruzamentos e mutações), simulando o que ocorre na biologia, para assim criar uma nova população.
 
@@ -129,42 +140,39 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
         Torneio funciona que até que se tenha cromossomos suficientes para fazer a recombinação, nesse caso 4, dois cromossomos são escolhidos aleatoriamente da população, usando uma distribuição de
         probabilidade uniforme, e o de melhor \textit{fitness} é selecionado para o processo de recombinação.
 
-    \subsection{Método de recombinação}
+    \subsection{Método de \textit{crossover}}
 
-        Método de recombinação o operador $C1$ são dados dois pais, $p_1$ e $p_2$, é escolhido um ponto de corte até o qual o filho será igual ao $p_1$. Então, os elementos que faltarem no
+        Operador de \textit{crossover} $C1$ são dados dois pais, $p_1$ e $p_2$, é escolhido um ponto de corte até o qual o filho será igual ao $p_1$. Então, os elementos que faltarem no
         cromossomo filho (todos os clientes faltantes até o ponto de corte) são inseridos no filho seguindo a ordem em que aparecem em $p_2$. 
 
-        Escolhemos o operador de recombinação do tipo \emph{crossover OX}, por se tratar de um cruzamento para codificação de permutação que, além de ser simples, exige um baixo custo computacional
+        Operador de \textit{crossover} do tipo \emph{crossover OX}, por se tratar de um cruzamento para codificação de permutação que, além de ser simples, exige um baixo custo computacional
         quando comparado com os outros esquemas de recombinação para a representação de permutação, desta maneira um maior número de recombinações são possíveis para um tempo fixo de processamento
-        da simulação. Por fim, foram utilizada a seleção aleatória de dois indivíduos da população para a utilização no processo de recombinação.
+        da simulação. 
 
-        A recombinação de dois indivíduos $A$ e $B$ é feita usando crossover de 2 pontos, selecionando-se aleatoriamente $2$ locus nas posições $L$ e $R$, com $L < R$, para serem os pontos da troca.
-        O primeiro indivíduo é gerado a partir da fusão entre as posições $[0, L]$ e $]R, size(A) - 1]$ de $A$ e as posições $]L, R]$ de $B$, já o segundo indivíduo é gerado a partir das posições
-        $[0, L]$ e $]R, size(B) - 1]$ de $B$ e as posições $]L, R]$ de $A$.
+        Outro método de \textit{crossover} de dois indivíduos $A$ e $B$ é usando \textit{crossover} de dois pontos, que é feito selecionando-se aleatoriamente $2$ locus nas posições $L$ e $R$,
+        com $L < R$, para serem os pontos da troca.  O primeiro indivíduo é gerado a partir da fusão entre as posições $[0, L]$ e $]R, size(A) - 1]$ de $A$ e as posições $]L, R]$ de $B$, já
+        o segundo indivíduo é gerado a partir das posições $[0, L]$ e $]R, size(B) - 1]$ de $B$ e as posições $]L, R]$ de $A$.
 
-        Após o crossover, é necessário fazer a correção de possíveis indivíduos inválidos segundo as restrições do problema.
+        Por fim, o \textit{Uniform Crossover} em vez de escolher aleatoriamente dois pontos de cruzamento, a cada locus, um pai é escolhido aleatoriamente para ter seu alelo copiado; o alelo
+        deste pai é copiado para o primeiro descendente enquanto o alelo do outro pai do mesmo locus é copiado para o segundo descendente.
+
+        Da mesma maneira que no método de \textit{crossover} de dois pontos, após a criação da nova geração através desta recombinação, todos os descendentes são verificados e, para todo par de locus
+        consecutivos com alelos iguais a 1, um destes locus é escolhido aleatoriamente e seu alelo alterado para 0.
+
+        Após o \textit{crossover}, é necessário fazer a correção de possíveis indivíduos inválidos segundo as restrições do problema.
 
     \subsubsection{Método de mutação}
 
-         Para uma população, são visitados todos os cromossomos e cada um será mutado se for escolhido um número aleatório maior que a taxa de mutação utilizada. Testamos como taxa de
-         mutação os valores $1/m$ (constava no artigo como o valor ideal para mutações) e $2/m$, sendo $m$ o tamanho da instância de entrada.
-
+         Para uma população, são visitados todos os cromossomos e cada um será mutado se for escolhido um número aleatório maior que a taxa de mutação utilizada. Existe um valor $1/m$
+         \cite{gendreau2010handbook} que diz ser um valor ideal para mutações, onde $m$ é o tamanho da instância de entrada.
+         
         Após a mutação, também é necessário fazer correções, pois pode haver indivíduos inválidos devido às restrições do problema.
-
-    \subsection{\textit{Uniform Crossover}}
-
-        Método de recombinação. O novo método de combinação utilizado foi a recombinação uniforme, ou \textit{Uniform Crossover}. Nessa recombinação, em vez de escolher aleatoriamente dois
-        pontos de cruzamento, a cada locus, um pai é escolhido aleatoriamente para ter seu alelo copiado; o alelo deste pai é copiado para o primeiro descendente enquanto o alelo do outro
-        pai do mesmo locus é copiado para o segundo descendente.
-
-        Da mesma maneira que no método de recombinação de dois pontos, após a criação da nova geração através desta recombinação, todos os descendentes são verificados e, para todo par de locus
-        consecutivos com alelos iguais a 1, um destes locus é escolhido aleatoriamente e seu alelo alterado para 0.
 
 
     \subsection{\emph{Steady-state}}
 
-        Tipicamente, a execução de um algoritmo genético é dividido em gerações que são substituídas (quase que por completo) a cada iteração do algoritmo. No caso do algoritmo genético \emph{steady
-        state} apenas alguns indivíduos são substituídos ao final de cada iteração.
+        Tipicamente, a execução de um algoritmo genético é dividido em gerações que são substituídas (quase que por completo) a cada iteração do algoritmo. No caso do algoritmo genético
+        \emph{steady state} apenas alguns indivíduos são substituídos ao final de cada iteração.
 
         Neste processo, dois pais devem ser selecionados da população atual e um filho deve ser gerado pelo processo de \emph{crossover}. Em seguida, o pior indivíduo dentre ambos os pais e filho é
         removido e os outros dois são realocados (se necessário) na população. Com isso, o conceito de gerações passa a não fazer sentido pois, neste caso, tem-se apenas um filho gerado enquanto o
@@ -172,19 +180,10 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
 
     \subsubsection{Manutenção de diversidade}
 
-        Para manter os indivíduos diversos e evitar a convergência muito cedo, foi usada uma função que diversifica a população após a seleção de pais, criação e mutação da geração atual.
+        Para manter os indivíduos diversos e evitar a convergência muito cedo, pode ser usado uma função que diversifica a população após a seleção de pais, criação e mutação da geração atual.
 
-        Neste caso, realizam-se testes 2 a 2 em cada indivíduo e se os indivíduos possuírem um número maior que o valor pré-definido(0.5$\%$, por exemplo) de alelos iguais, o primeiro dos
+        Neste caso, realizam-se testes 2 a 2 em cada indivíduo e se os indivíduos possuírem um número maior que o valor pré-definido (0.5$\%$, por exemplo ) de alelos iguais, o primeiro dos
         dois sofre uma mutação aleatória em um locus.
-
-    \subsection{Cruzamento}
-
-        Dois indivíduos, $I_1$ e $I_2$, são escolhidos aleatoriamente, usando um distribuição de probabilidade uniforme, do conjunto de cromossomos previamente selecionados para o cruzamento. Seja
-        $N$ o número de loci e $0$ a $N-1$ os índices desses loci. Dois pontos de cruzamento $0 \le p_1 < p_2 \le N-1$ são escolhidos usando uma distribuição de probabilidade uniforme para cada
-        recombinação. São criados dois novos indivíduos, o primeiro recebe os alelos de $p_1$ a $p_2$ do indivíduo $I_1$. Se o filho não tiver $p$ alelos 1, alelos 1 são escolhidos aleatoriamente,
-        usando uma distribuição de probabilidade uniforme, dos intervalos $[0, p_1)$ e $(p_2, N_1]$ do indivíduo $I_2$, até que o filho seja viável. Se após isso o filho ainda não for viável, são
-        escolhidos alelos 1 do intervalo $[p_1, p_2]$ do indivíduo $I_2$ até que o filho seja viável. O mesmo ocorre para o segundo filho invertendo a ordem dos pais. Note que não há cromossomos
-        infactíveis gerados na recombinação. 
 
 \subsection{GRASP}
 \improvement{Falta bastante coisa do graps, principalmente sobre suas variações}
