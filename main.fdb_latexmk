@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber main"] 1527976460 "main.bcf" "main.bbl" "main" 1527976846
+["biber main"] 1527976460 "main.bcf" "main.bbl" "main" 1527978234
   "general.bib" 1527974950 2410 262036d0a69abcdec82679fa34632ad4 ""
-  "main.bcf" 1527976846 89137 542af0ef2aa4e2017f0cbf50d9a4a4c4 ""
+  "main.bcf" 1527978234 89137 542af0ef2aa4e2017f0cbf50d9a4a4c4 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1527976845 "main.tex" "main.pdf" "main" 1527976846
+["pdflatex"] 1527978233 "main.tex" "main.pdf" "main" 1527978234
   "/etc/texmf/web2c/texmf.cnf" 1526672357 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
@@ -26,7 +26,6 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/zptmcm7v.tfm" 1480098689 1032 20febbd0f0c9a48eb78616f897008286 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/zptmcm7y.tfm" 1480098689 1520 ad7b3c1a480a03b3e41b5fbb13d938f2 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1480098696 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1480098701 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1480098701 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1480098701 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1480098701 1288 655e228510b4c2a1abe905c368440826 ""
@@ -35,7 +34,6 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1480098733 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1480098733 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1480098733 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb" 1480098746 33709 b09d2e140b7e807d3a97058263ab6693 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1480098746 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1480098746 44656 0cbca70e0534538582128f6b54593cca ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1480098746 46026 6dab18b61c907687b520c72847215a68 ""
@@ -46,7 +44,6 @@
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmri8t.vf" 1480098758 2328 6cd7df782b09b29cfc4d93e55b6b9a59 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf" 1480098758 1132 27520247d3fe18d4266a226b461885c2 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/zptmcm7t.vf" 1480098758 1108 d271d6f9de4122c3f8d3b65666167fac ""
-  "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/zptmcm7v.vf" 1480098758 1012 046369ac6a83af997c3aa05a43256ad5 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/zptmcm7y.vf" 1480098758 964 5673178ff30617b900214de28ab32b38 ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1480098806 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf" 1480098812 6605 2bd2937f1ce929b4a1367cc2d320364e ""
@@ -202,11 +199,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1526672418 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1526672440 4132011 5beac02ca1c960533d9442d2e47b3f98 ""
-  "main.aux" 1527976846 8199 9909ca2ad74fc3d5e949023d85be1faa ""
+  "main.aux" 1527978234 6885 31686f2d0480414929d87da1fb6a6610 ""
   "main.bbl" 1527976460 11658 111036387310a6860aba9f9146b2f674 "biber main"
-  "main.run.xml" 1527976846 2334 f58f5a8c1642a3608594f18c8c59653b ""
-  "main.tdo" 1527976846 966 65b8daabbb00971dba6bc3def35b3cf3 ""
-  "main.tex" 1527976844 25559 af17ee889cdb1dc2ed0be6beaad39d2c ""
+  "main.run.xml" 1527978234 2334 f58f5a8c1642a3608594f18c8c59653b ""
+  "main.tdo" 1527978234 754 3e72c60191c2a8dc2f8387b33f5a3fcc ""
+  "main.tex" 1527978231 22231 d558399291e114547be41fd67ff8840b ""
   (generated)
   "main.aux"
   "main.pdf"

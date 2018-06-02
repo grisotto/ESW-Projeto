@@ -121,12 +121,18 @@ uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não
 
 \info{Precisa falar das metaheuristicas, quais iremos usar, algum por que de cada uma e depois dizer como elas estão organizadas na seção}
 
+\subsection{Colonia de formigas}
+
+\subsection{Colonia de abelhas}
+
+\subsection{Enxame de particulas}
 
 \subsection{swarm particiles otimization}
 
 \subsection{articficial bee colony}
 
 \subsection{firefly algorithm}
+
 \subsection{Algoritmo Genético}
 \label{sec:alg_genetic}
 
@@ -186,7 +192,7 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
         dois sofre uma mutação aleatória em um locus.
 
 \subsection{GRASP}
-\improvement{Falta bastante coisa do graps, principalmente sobre suas variações}
+
     O GRASP (Greedy Randomized Adaptive Search Procedure) para problemas de otimização combinatória foi introduzida por Feo e Resende \cite{feo1989probabilistic}. O GRASP tem sua iteração
     primeiramente a construção de uma solução inicial a partir de uma heurística construtiva gulosa e aleatória. Depois, é realizado uma busca local com intenção de explorar a vizinhança da
     solução inicial até atingir um mínimo local do espaço de soluções. Após um critério de parada como quantidade de iterações ou tempo de processamento o GRASP devolve a melhor solução
@@ -197,81 +203,81 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
     \subsubsection{Busca Local}
 
         Método de Busca Local: regula o tipo de busca realizada na fase de busca local. Aceita valores '\textit{best improving}' ou '\textit{first improving'}. O primeiro busca por toda a vizinhança
-        a procura da melhor melhoria local do valor objetivo possível, enquanto o segundo procura apenas pela primeira melhoria no valor objetivo;
+        a procura da melhor solução local do valor objetivo possível, enquanto o segundo procura apenas pela primeira melhoria no valor objetivo;
 
-    \subsubsection{Heurística Construtiva}
-
-        É da natureza das heurísticas de busca locais a dependência da solução inicial e da dimensão da vizinhança. Assim, o uso de uma heurística construtiva, a fim de gerar uma solução inicial de
-        qualidade, facilita o desempenho da busca local. Como a Busca Tabu tem como essência a busca local foi utilizada uma heurística construtiva.
-
-
-        A heurística construtiva utilizada foi onde os elementos são selecionados a partir de uma lista restrita de candidatos (LRC). A LRC é constituída por todos os elementos que geram
-        melhora a função objetivo quanto adicionados a solução. Ao termino de cada iteração da heurística construtiva a LRC é atualizada uma vez que o vetor-solução também foi alterado.
-
-
-        A construção do vetor-solução pode ter mecanismos que garantem a factibilidade durante a busca ou ainda aplicar mecanismos de reparo, para garantir a factibilidade. Como as técnicas de
-        reparo perdem parte da qualidade da solução gerada, a abordagem desse trabalho utiliza somente opções de construção factíveis. A heurística construtiva é executada enquanto existem elementos
-        na LRC.
 
         
-\subsection{Colonia de formigas}
 
-\subsection{Colonia de abelhas}
-
-\subsection{Enxame de particulas}
-
-\subsection{}
 
 \subsection{BRKGA}
+
 \change{A descrição do BRKGA esta a mais incompleta. Precisa adicionar bastante coisa e descrever melhor}
-O BRKGA (biased random-key genetic algorithm)\cite{gonccalves2011biased} é uma metaheuristica para encontrar uma solução ótima ou próxima da ótima. É uma variação do RKGA
-(random-key genetic algorithms) \cite{bean1994genetic} e se obtém uma solução viável para o problema através da decodificação de uma solução codificada. A solução codificada são vetores de
-chaves aleatórias em um intervalo de números reais continuo $(0,1]$ e a decodificação é uma etapa que mapeia um vetor de chaves aleatórias numa solução do problema de otimização e calcula o
-seu custo. Note que o BRKGA tem como seu algoritmo sendo independente do problema. 
 
-De forma resumida, a definição de algumas características do BRKGA: 
+    O BRKGA (biased random-key genetic algorithm)\cite{gonccalves2011biased} é uma metaheuristica para encontrar uma solução ótima ou próxima da ótima. É uma variação do RKGA
+    (random-key genetic algorithms) \cite{bean1994genetic} e se obtém uma solução viável para o problema através da decodificação de uma solução codificada. A solução codificada são vetores de
+    chaves aleatórias em um intervalo de números reais continuo $(0,1]$ e a decodificação é uma etapa que mapeia um vetor de chaves aleatórias numa solução do problema de otimização e calcula o
+    seu custo. Note que o BRKGA tem como seu algoritmo sendo independente do problema. 
+
+    De forma resumida, a definição de algumas características do BRKGA: 
 
 
-\begin{itemize}
-\item Codificação de uma solução com chaves aleatórias em intervalo continuo $[0,1]$ 
-\item Geração de população inicial com $p$ vetores de $n$ chaves aleatórias
-\item Método de seleção de indivíduos é ordenado pelo $fitness$ e gerado dois grupos, elite e não-elite. Após, é escolhido um pai do conjunto elite e o outro é escolhido do conjunto não-elite. 
-\end{itemize}
+        \begin{itemize}
+
+        \item Codificação de uma solução com chaves aleatórias em intervalo continuo $[0,1]$ 
+
+        \item Geração de população inicial com $p$ vetores de $n$ chaves aleatórias
+
+        \item Método de seleção de indivíduos é ordenado pelo $fitness$ e gerado dois grupos, elite e não-elite. Após, é escolhido um pai do conjunto elite e o outro é escolhido do conjunto
+            não-elite. Com estes é gerado a próxima geração. 
+
+        \end{itemize}
+
+        Todas as variações descritas no algoritmo genético \ref{sec:alg_genetic} são possíveis de se aplicadas no BRKGA. 
 
 \subsection{Busca Tabu}
 \info{Aqui precisamos apenas deixar fluido. acho que não precisa de mais conteúdo}
-A Busca Tabu é uma busca local que permite movimentos que podem não melhorar a solução atual. Para evitar ciclos, existe um mecanismo chamado lista tabu onde os últimos movimentos realizados
-ficam armazenados por um dado número de iterações, chamado \textit{tenure}. Os movimentos que estão na lista de tabus ficam proibidos, a menos que um dado critério de aspiração seja
-satisfeito. Caso um critério de aspiração seja satisfeito o movimento é permitido. A heurística foi originalmente proposta por \citeauthor{glover1986future} \cite{glover1986future} e nos
-últimos 20 anos centenas de artigos utilizam Busca Tabu em diversos problemas de combinatória e mostrando ser bastante eficaz com resultados bem próximos do ótimo ou conseguindo o ótimo
-\cite{gendreau2010handbook}.
 
-Na Busca Tabu precisamos definir muito bem o espaço de busca e a estrutura da vizinhança. Definir os critérios da restrição de movimentos. Pode ser complicado deixar a metaheuristica
-suficientemente genética para ser usada no framework EvoSuite, porém podemos pensar em casos não muito gerais e aplicar mecanismos de busca por intensificação e por diversidade.
+    A Busca Tabu é uma busca local que permite movimentos que podem não melhorar a solução atual. Para evitar ciclos, existe um mecanismo chamado lista tabu onde os últimos movimentos realizados
+    ficam armazenados por um dado número de iterações, chamado \textit{tenure}. Os movimentos que estão na lista de tabus ficam proibidos, a menos que um dado critério de aspiração seja
+    satisfeito. Caso um critério de aspiração seja satisfeito o movimento é permitido. A heurística foi originalmente proposta por \citeauthor{glover1986future} \cite{glover1986future} e nos
+    últimos 20 anos centenas de artigos utilizam Busca Tabu em diversos problemas de combinatória e mostrando ser bastante eficaz com resultados bem próximos do ótimo ou conseguindo o ótimo
+    \cite{gendreau2010handbook}.
 
-    \subsubsection{Busca \textit{Ternure}}
+    Na Busca Tabu precisamos definir muito bem o espaço de busca e a estrutura da vizinhança. Definir os critérios da restrição de movimentos. Pode ser complicado deixar a metaheuristica
+    suficientemente genética para ser usada no framework EvoSuite, porém podemos pensar em casos não muito gerais e aplicar mecanismos de busca por intensificação e por diversidade.
 
-        Determina a quantidade de iterações que um movimento permanece tabu, sabendo que em cada iteração um número constante de movimentos são inseridos e retirados da lista
-        Tabu. É dado em relação ao tamanho do problema, ou seja, recebe valores no intervalo $[0,1]$, e cada movimento permanece no tabu por $\textit{tenure}*n$ iterações;
+
+    %\subsubsection{Heurística Construtiva}
+
+        %É da natureza das heurísticas de busca locais a dependência da solução inicial e da dimensão da vizinhança. Assim, o uso de uma heurística construtiva, a fim de gerar uma solução inicial de
+        %qualidade, facilita o desempenho da busca local. Como a Busca Tabu tem como essência a busca local foi utilizada uma heurística construtiva.
+
+
+        %A heurística construtiva utilizada foi onde os elementos são selecionados a partir de uma lista restrita de candidatos (LRC). A LRC é constituída por todos os elementos que geram
+        %melhora a função objetivo quanto adicionados a solução. Ao termino de cada iteração da heurística construtiva a LRC é atualizada uma vez que o vetor-solução também foi alterado.
+
+
+        %A construção do vetor-solução pode ter mecanismos que garantem a factibilidade durante a busca ou ainda aplicar mecanismos de reparo, para garantir a factibilidade. Como as técnicas de
+        %reparo perdem parte da qualidade da solução gerada, a abordagem desse trabalho utiliza somente opções de construção factíveis. A heurística construtiva é executada enquanto existem elementos
+        %na LRC.
+
+    %\subsubsection{Busca \textit{Ternure}}
+
+        %Determina a quantidade de iterações que um movimento permanece tabu, sabendo que em cada iteração um número constante de movimentos são inseridos e retirados da lista
+        %Tabu. É dado em relação ao tamanho do problema, ou seja, recebe valores no intervalo $[0,1]$, e cada movimento permanece no tabu por $\textit{tenure}*n$ iterações;
 
 
     \subsubsection{Intensificação}
 
-        Implementamos apenas uma intensificação por vizinhança, no qual são explorados todos os movimentos possíveis (inserção, remoção e troca) com quaisquer três elementos. Como
-        este é um método alternativo, e não temos certeza de sua eficácia, habilitamos a possibilidade de desativar esta intensificação como parâmetro. Aceita 'sim' ou 'não';
+        Uma possível intensificação por vizinhança é que no qual são explorados todos os movimentos possíveis (inserção, remoção e troca) com quaisquer três elementos. 
 
     \subsubsection{Método de Busca Local}
-
-        Regula o tipo de busca realizada na fase de busca local. Aceita valores '\textit{best improving}' ou '\textit{first improving'}. O primeiro busca por toda a vizinhança
-        a procura da melhor melhoria local do valor objetivo possível, enquanto o segundo procura apenas pela primeira melhoria no valor objetivo. Caso tal melhora não exista, o movimento que menos
-        piora o valor objetivo é aplicado em ambos os casos;
 
         \begin{itemize}
 
         \item {\it Best Improving:} onde toda a exploração da vizinhança de uma solução é dada até a exaustão, ou seja, todos os elementos são analisados até que o mínimo local seja encontrado. Como
             a busca está restrita a vizinhança da solução o mínimo encontrado é local, e não se tem garantida quanto a otimalidade global. No mesmo intuito de buscar por soluções sempre factíveis, a
-                fim de não aplicar operadores de reparo nas soluções, a técnica de {\it best improving} só analisa a vizinhança factível. Três tipos de análise foram utilizadas para a busca:
-                inserção, remoção e troca de entradas do vetor-solução, todas feitas respeitando os critérios de factibilidade. 
+                fim de não aplicar operadores de reparo nas soluções, a técnica de {\it best improving} só analisa a vizinhança factível. 
 
         \item {\it First Improving:} a busca na vizinhança é feita usando as técnicas de inserção, remoção e troca. Todas as opções factíveis para as três técnicas são colocadas em uma lista
         e um dos elementos dessa lista é selecionado de forma aleatória, assim que a primeira melhora é encontrada o processo de busca nessa vizinhança para e a lista é atualizada para
@@ -281,43 +287,27 @@ suficientemente genética para ser usada no framework EvoSuite, porém podemos p
     \subsubsection{\it Surrogate Objective} 
 
         Ao resolver um problema por meta-heurísticas, ou ainda, heurísticas, é imprescindível a escolha de uma boa função de avaliação da solução. Por vezes, a melhor escolha para a função de
-        avaliação não é a função objetivo, seja porque o calculo da  função objetivo tem alto custo computacional ou ainda porque ela não trás informações precisas sobre a solução que está sendo
+        avaliação não é a função objetivo, seja porque o calculo da função objetivo tem alto custo computacional ou ainda porque ela não trás informações precisas sobre a solução que está sendo
         tratada. Nesses casos é interessante o uso de uma função de avaliação diferente, conhecida também como {\it surrogate objective}.
 
-        Para esse trabalho foi utilizada uma função de avaliação alternativa, onde ao invés de calcular $x'Ax$, usa-se o valor do benefício possível de cada entrada para calcular o {\it surrogate
-        objective}. Ou seja, para o elemento $x_i$, candidato a participar da solução, sua contribuição é calculada como $\sum_{j=1}^n A_{i,j}+A_{j,i}$, onde $n$ é a dimensão da matriz $A$.
 
-    \subsubsection{Critério de Aspiração} 
+    %\subsubsection{Critério de Aspiração} 
 
-        Determinar o tamanho da lista tabu e quais níveis de restrição utilizar não é uma tarefa simples. Assim, é possível que existam ações proibidas pela lista tabu que ajudariam a
-        melhorar a solução corrente. Portanto, criar mecanismos que permitam violar a lista tabu são importantes, esses mecanismos são denominados critérios de aspiração. 
+        %Determinar o tamanho da lista tabu e quais níveis de restrição utilizar não é uma tarefa simples. Assim, é possível que existam ações proibidas pela lista tabu que ajudariam a
+        %melhorar a solução corrente. Portanto, criar mecanismos que permitam violar a lista tabu são importantes, esses mecanismos são denominados critérios de aspiração. 
 
-        O critério de aspiração desenvolvido nesse trabalho é baseado na analise do benefício que os elementos da lista tabu poderiam gerar para a solução corrente. Ou seja, caso haja algum elemento
-        na lista tabu que apresente a melhor contribuição, entre os elementos dentro e fora da lista, ele será utilizado para compor a solução.
 
     \subsubsection{Diversificação por Reinício}
 
-        Envolve forçar alguns componentes que são raramente utilizados na solução e reiniciar o processo de busca a partir deste ponto. O critério para reiniciar a busca foi definido com $r$
-        iterações sem melhoria da solução corrente. Esse parâmetro foi deixado para ser ajustado pelo \textit{irace}. Seja $t$ o \textit{tenure}, quando a busca é reiniciada são colocados os $t$
-        movimentos mais frequentes no tabu, colocando primeiro o menos frequente e por o último o mais frequente. A frequência é calculada somando 1 cada vez que o movimento é realizado pelo
-        operador de busca local. A frequência não é reiniciada quando a busca recomeça. Quando a busca reinicia uma nova solução inicial é construída, a heurística construtiva é escolhida
-        aleatoriamente sendo que as duas tem a mesma probabilidade de serem escolhidas. 
+        Envolve forçar alguns componentes que são raramente utilizados na solução e reiniciar o processo de busca a partir deste ponto.  Seja $t$ o \textit{tenure}, quando a busca é
+        reiniciada são colocados os $t$ movimentos mais frequentes no tabu, colocando primeiro o menos frequente e por o último o mais frequente. A frequência é calculada somando 1 cada vez
+        que o movimento é realizado pelo operador de busca local. A frequência não é reiniciada quando a busca recomeça. Quando a busca reinicia uma nova solução inicial é construída.
 
-    \subsubsection{Diversificação Continua}
+    %\subsubsection{Diversificação Continua}
 
-        Integra diversificação considerando diretamente no processo normal de busca. Conseguindo isso a partir do calculo da influencia dos possíveis movimentos adicionando ao objetivo um termo pequeno
-        relacionado a frequência dos componentes.
+        %Integra diversificação considerando diretamente no processo normal de busca. Conseguindo isso a partir do calculo da influencia dos possíveis movimentos adicionando ao objetivo um termo pequeno
+        %relacionado a frequência dos componentes.
 
-    \subsubsection{Descrição da lista Tabu}
-
-        Tabu é uma memória de curto prazo usado pelo operador de busca local para evitar de repetir movimentos ou desfazer movimentos que foram feitos a no máximo um dado número de iterações. Neste
-        trabalho, a lista tabu foi implementada como um fila duplamente terminada. Um número fixo de elementos é permitido estar na fila a cada instante, sendo assim, cada elemento pode ficar por um
-        número determinado de iterações da busca local, pois a cada iteração dois novos elementos entram na lista. Toda vez que um elemento é adicionado ou removido da solução corrente, esse
-        elemento é adicionado na lista tabu. A cada iteração, se apenas uma das operações é a realizada, inserção ou remoção, um elemento que não faz parte do problema é adicionado na lista tabu
-        para assegurar que os dois elementos mais antigos sejam removidos. O número de iterações que o elemento fica na lista tabu é chamado de \textit{tenure}. Para assegurar que a lista sempre tem
-        um número fixo de elementos, a fila foi inicializada com elementos que não fazem parte do problema. Nós percebemos que o tamanho da \textit{tenure} influencia muito na qualidade da solução
-        encontrada pela busca tabu. Por meio de tentativas, nós chegamos a dois valores que se saíram melhor para a maioria dos casos, $20\%$ e $30\%$ do número de variáveis de decisão defininem o
-        tamanho da lista de tabus. Como a cada iteração dois elementos entram e os dois mais antigos saem da lista tabu, o \textit{tenure} dessa lista é a metade de seu tamanho.
 
 \printbibliography
 \end{document}
