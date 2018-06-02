@@ -106,9 +106,12 @@ O \textit{fitness} dos indivíduos é calculado com base a um critério de cober
 
 Os casos de testes precisam de algum tipo de testes de oraculo manual para que assim o engenheiro de software verifique e capture a corretude da unidade sobre testes que não se pode detectar com oráculos automatizados. No caso de testes unitários esses oráculos manuais geralmente são asserções. Dado um teste de unidade gerado automaticamente, existe um número finito de código que pode ser gerado uma asserção. Porém mesmo que seja limitado, mostrar todas as asserções para o desenvolvedor pode ser problemático, pois para uma falha seja detectada o desenvolvedor precisa verificar a corretude das asserções, e muitas delas podem ser irrelevantes. Semelhante a isso, um caso de teste pode falhar em um ponto posterior, indicando falha de regressão, quando de fato ele possui muitas asserções e isso causa várias restrições, assim conduzindo a falsos alarmes \cite{fraser2011evosuite}.
 
-Para determinar a importância e efetividade das asserções, o EvoSuite aplica testes de mutação. Em testes de mutação, defeitos (mutantes) são semeados no programa testados nas suítes de testes. Quanto mais defeitos detectados com o menor número de asserções melhor a qualidade do caso de teste, entretanto, se os defeitos não forem encontrados significa que o caso de teste precisa de melhoras. Após a geração dos casos de testes, o EvoSuite roda cada caso de teste no programa sem modificações assim como nos mutantes criados, assim analisando quais defeitos são encontrados pelas asserções. Após isto o EvoSuite seleciona as assercões suficientes para encontrar a maior quantidade de defeitos no programa em análise.
+Para determinar a importância e efetividade das asserções, o \textit{EvoSuite} aplica testes de mutação. Em testes de mutação, defeitos (mutantes) são semeados no programa testados nas suítes de testes. Quanto mais defeitos detectados com o menor número de asserções melhor a qualidade do caso de teste, entretanto, se os defeitos não forem encontrados significa que o caso de teste precisa de melhoras. Após a geração dos casos de testes, o \textit{EvoSuite} roda cada caso de teste no programa sem modificações assim como nos mutantes criados, assim analisando quais defeitos são encontrados pelas asserções. Após isto o \textit{EvoSuite} seleciona as asserções suficientes para encontrar a maior quantidade de defeitos no programa em análise.
 
-%nada
+\subsection{Resultados do \textit{EvoSuite}}
+
+\citeauthor{fraser20151600} testaram 100 projetos de código aberto selecionados randomicamente a fim de avaliarem.
+
 
 \newpage
 
