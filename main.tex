@@ -46,7 +46,7 @@
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 
 \title{Otimização Combinatória em  \\ testes}
-\author{Rafael Grisotto e Souza - RA 192765\\ Vinicius \\ Paulo Henrique Carvalho de Morais - RA 192877}
+\author{Rafael Grisotto e Souza - RA 192765\\ Vinícius Loti de Lima - RA 209829 \\ Paulo Henrique Carvalho de Morais - RA 192877}
 
 
 
@@ -64,6 +64,15 @@ https://ieeexplore.ieee.org/document/5954405/
 Descrever EvoSuite (meta heurística)
 http://www.evosuite.org/publications/
 
+Terminar: Resumo SBST e dizer o que iremos fazer com base nos slides, perguntas de pesquisa, avaliar os métodos e etc. 
+
+
+Olhar os artigos deles para fazer experimentos.
+
+Terminar Evosuite
+
+Adicionar outras metaheurista e limpar um pouco o texto.
+
 Alternativas para melhorar os resultados: meta heurística a, b, c, ...
 
 
@@ -79,25 +88,27 @@ Projetar e rodar experimento com todas ou um subconjunto e comparar.
 
 \section{Referencial EvoSuite}
 
-EvoSuite é uma ferramenta de geração de suítes de testes com alta cobertura e produz asserções. O EvoSuite usa uma abordagem baseada em pesquisa, integrando técnicas atuais tais como hybrid
-search, dynamic symbolic execution e testability transformation. \change{citar!!}
+\textit{EvoSuite} é uma ferramenta que automatiza a geração de suítes de testes com alta taxa de cobertura, pequenas o suficiente e fornece asserções. Ele gera as suítes de testes tantos para classes individuais quanto para projetos inteiros, sem requerer comandos complicados adicionais. Esta ferramenta é livre, e pode ser usada em linha de comando ou como  plugins para da plataformas de desenvolvimento como por exemplo o Eclipse\footnote{http://www.evosuite.org/downloads/} \cite{fraser2011evosuite}.
 
-\textbf{Geração de suítes de testes:} EvoSuite usa abordagem de busca evolucionária que evolui os conjuntos de casos de testes de acordo com a um critério de cobertura. A otimização prioriza
-o critério de cobertura ao invés objetivos locais que não resultam em diversidade influenciada pela ordem, dificuldade ou inviabilidade de objetivos individuais.
+O \textit{EvoSuite} utiliza \textit{whole test suite generation} e \textit{Mutation-based assertion generation} para alcançar os seus objetivos eficientemente, os quais serão descritos a seguir serão descritos a seguir:
 
-Otimizando com critério de convergência do que por convergência individual consegue resultados que não são influenciados pela ordem ou pela dificuldade ou inflexibilidade de convergência
-individuais. Estes são alguns dos problemas, pois alguns objetivos são mais difíceis que outros e existe o recurso limitado de tempo para testes.
-\improvement{Expandir para como ele gera os testes}
+\subsection{Whole Test Suite Generation}
 
-\textbf{Mutações baseadas em gerações de acerssões:} EvoSuite utiliza teste de mutação para produzir um conjunto reduzido de que maximiza a inclusão de defeitos em uma classe que são revelados pelos casos de testes. Isso ajuda dando feedback aos desenvolvedores de quais defeitos devem ser tratados 
+Uma abordagem comum na literatura é gerar um caso de teste para cada meta individuais de cobertura (ex, \textit{branches in branch coverage}), e então os combinam em uma única suíte de teste. Porém, o tamanho resultante da suíte de testes é difícil de predizer pois um caso de teste gerado para uma meta pode implicitamente também cobrir qualquer quantidade de metas de cobertura à frente. Ou seja, a ordem em que cada meta é escolhida pode desempenhar um papel importante, pois pode haver dependências entre elas. Há outros problemas quando se considera uma meta de cada vez, como metas quem podem ser mais difíceis de cobrir do que outras, ou até mesmo serem inviáveis \cite{fraser2013whole}.
 
+Para superar esses problemas, \textit{whole test suite generation} é uma abordagem que não produz casos de testes para cada meta individual de cobertura, ao invés disso foca em suítes de testes visando um completo critério de cobertura. Otimizando em relação em critério de cobertura ao invés de metas individuais cobertura tem resultados que não são influenciados pela ordem, pela dificuldade nem pela inviabilidade dos casos de testes \cite{fraser2011evosuite}.
 
-No \textit{EvoSuite} uma solução candidata consistem de um número variável de casos de teste individuais. Onde, cada um destes casos de teste é uma sequencia de chamadas do método repetidas
-com a variação do comprimento e aperfeiçoando a unidade em teste e definido objetos complexos para fazer isso.  
+\textit{EvoSuite} implementa \textit{whole test suite generation} como um algoritmo genético, onde uma suíte de testes é considerada como uma solução candidata. Cada suíte de teste consiste de um número variável de casos de testes, que por sua vez, consiste em uma sequência de instruções. O crossover entre duas suítes de testes são trocados casos de testes entre si baseado em uma escolha aleatória da posição do crossover. A mutação de uma suíte de teste adiciona novos casos de testes, ou modifica testes individuais. Já a mutação de casos de testes são adicionados, removidos ou mudados instruções ou parâmetros.
 
-O \textit{fitness} é calculado por um critério de convergência por completo. \improvement{explicar melhor} 
+O \textit{fitness} dos indivíduos é calculado com base a um critério de cobertura, no caso o \textit{EvoSuite} usa \textit{branch coverage} como critério de teste. Para que seja realizada a evolução são recompensados aqueles indivíduos o quais possuem uma melhor cobertura. Quanto maior o tamanho das suítes de testes maior a chance de cobrir as metas de cobertura, e o \textit{EvoSuite} permite que a busca aprofunde em sequencias longas, porém é aplicado várias técnicas de \textit{bloat control}. Essa técnicas de \textit{bloat control} assegura que indivíduos não fiquem excecivamente muito grandes, com isso, no fim da busca as suítes de testes são minimizadas tal que apenas instruções contribuindo para a cobertura permaneçam.
 
+\subsection{Mutation-Based Assertion Generation}
 
+Os casos de testes precisam de algum tipo de testes de oraculo manual para que assim o engenheiro de software verifique e capture a corretude da unidade sobre testes que não se pode detectar com oráculos automatizados. No caso de testes unitários esses oráculos manuais geralmente são asserções. Dado um teste de unidade gerado automaticamente, existe um número finito de código que pode ser gerado uma asserção. Porém mesmo que seja limitado, mostrar todas as asserções para o desenvolvedor pode ser problemático, pois para uma falha seja detectada o desenvolvedor precisa verificar a corretude das asserções, e muitas delas podem ser irrelevantes. Semelhante a isso, um caso de teste pode falhar em um ponto posterior, indicando falha de regressão, quando de fato ele possui muitas asserções e isso causa várias restrições, assim conduzindo a falsos alarmes \cite{fraser2011evosuite}.
+
+Para determinar a importância e efetividade das asserções, o EvoSuite aplica testes de mutação. Em testes de mutação, defeitos (mutantes) são semeados no programa testados nas suítes de testes. Quanto mais defeitos detectados com o menor número de asserções melhor a qualidade do caso de teste, entretanto, se os defeitos não forem encontrados significa que o caso de teste precisa de melhoras. Após a geração dos casos de testes, o EvoSuite roda cada caso de teste no programa sem modificações assim como nos mutantes criados, assim analisando quais defeitos são encontrados pelas asserções. Após isto o EvoSuite seleciona as assercões suficientes para encontrar a maior quantidade de defeitos no programa em análise.
+
+%nada
 
 \newpage
 
@@ -204,7 +215,13 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
         na LRC.
 
         
+\subsection{Colonia de formigas}
 
+\subsection{Colonia de abelhas}
+
+\subsection{Enxame de particulas}
+
+\subsection{}
 
 \subsection{BRKGA}
 \change{A descrição do BRKGA esta a mais incompleta. Precisa adicionar bastante coisa e descrever melhor}
@@ -303,6 +320,7 @@ suficientemente genética para ser usada no framework EvoSuite, porém podemos p
         encontrada pela busca tabu. Por meio de tentativas, nós chegamos a dois valores que se saíram melhor para a maioria dos casos, $20\%$ e $30\%$ do número de variáveis de decisão defininem o
         tamanho da lista de tabus. Como a cada iteração dois elementos entram e os dois mais antigos saem da lista tabu, o \textit{tenure} dessa lista é a metade de seu tamanho.
 
+\printbibliography
 \end{document}
 
 
