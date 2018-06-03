@@ -119,20 +119,30 @@ uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não
 
 As próximas secções descrevem as meta-heurísticas que iremos utiliza ou tentar utilizar no problema de teste de software com o \textit{Evosuite}.
 
-\subsection{Colonia de formigas}
+\subsection{Colônia de formigas}
 
-Uma meta-heurista bio-inspirada que pode ser útil para o nosso projeto é Colônia de Formigas \cite{dorigo1999ant} ( do inglês \textit{Ant Colony Optimization} ) que surgiu da observação do
+Uma meta-heurística bio-inspirada que pode ser útil para o nosso projeto é Colônia de Formigas \cite{dorigo1999ant} ( do inglês \textit{Ant Colony Optimization} ) que surgiu da observação do
 comportamento das formigas reais e incluso técnicas de busca local posteriormente. Utiliza algoritmo guloso para para construir a solução inicial e para soluções viáveis. Outro ponto
 importante é a quantidade de feromônio depositado pelas formigas que dá a visibilidade que é a capacidade dada às formigas de observar os elementos que compõem a solução ou o caminho que
 elas estão percorrendo.
 
 
+Na Figura \ref{figura_ant} mostra toda o processo da meta-heurística colônia de formigas. Basicamente a busca das formigas por uma caminho fica em um laço pela quantidade de feromônio e caso
+encontre uma solução que seja o menor caminho, então para.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.5]{imagens/ant.jpeg}
+ \caption{Fluxo completo de todo o processo da meta-heurística colônia de formigas. \cite{nayyar2017simulation}}
+  \label{figura_ant}
+ %\legend{Fonte: %\cite{fraser2011evosuite} }
+\end{figure}
 
 
 
-\subsection{Colonia de abelhas}
+%\subsection{Colonia de abelhas}
 
-\subsection{Enxame de partículas}
+%\subsection{Enxame de partículas}
 
 \subsection{Algoritmo Genético}
 \label{sec:alg_genetic}

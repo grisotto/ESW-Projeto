@@ -1,0 +1,114 @@
+\begin{thebibliography}{10}
+
+\bibitem{bean1994genetic}
+James~C Bean.
+\newblock Genetic algorithms and random keys for sequencing and optimization.
+\newblock {\em ORSA journal on computing}, 6(2):154--160, 1994.
+
+\bibitem{Korel:1990}
+Korel Bogdan.
+\newblock Automated software test data generation.
+\newblock {\em IEEE Trans. Softw. Eng.}, 16(8):870--879, 1990.
+
+\bibitem{Korel:1992}
+Korel Bogdan.
+\newblock Dynamic method for software test data generation.
+\newblock {\em Software Testing, Verification and Reliability}, 2(4):203--213,
+  1992.
+
+\bibitem{Buhler:2003}
+Oliver B\"{u}hler and Joachim Wegener.
+\newblock Evolutionary functional testing of an automated parking system.
+\newblock {\em International Conference on COmputer, Communication and Control
+  Technologies and The 9th International Conference on Information Systems
+  Analysis and Synthesis}, 01 2003.
+
+\bibitem{Buhler:2008}
+Oliver B\"{u}hler and Joachim Wegener.
+\newblock Evolutionary functional testing.
+\newblock {\em Comput. Oper. Res.}, 35(10):3144--3160, October 2008.
+
+\bibitem{dorigo1999ant}
+Marco Dorigo and Gianni Di~Caro.
+\newblock Ant colony optimization: a new meta-heuristic.
+\newblock In {\em Evolutionary Computation, 1999. CEC 99. Proceedings of the
+  1999 Congress on}, volume~2, pages 1470--1477. IEEE, 1999.
+
+\bibitem{feo1989probabilistic}
+Thomas~A Feo and Mauricio~GC Resende.
+\newblock A probabilistic heuristic for a computationally difficult set
+  covering problem.
+\newblock {\em Operations research letters}, 8(2):67--71, 1989.
+
+\bibitem{fraser2011evolutionary}
+Gordon Fraser and Andrea Arcuri.
+\newblock Evolutionary generation of whole test suites.
+\newblock In {\em Quality Software (QSIC), 2011 11th International Conference
+  on}, pages 31--40. IEEE, 2011.
+
+\bibitem{fraser2011evosuite}
+Gordon Fraser and Andrea Arcuri.
+\newblock Evosuite: automatic test suite generation for object-oriented
+  software.
+\newblock In {\em Proceedings of the 19th ACM SIGSOFT symposium and the 13th
+  European conference on Foundations of software engineering}, pages 416--419.
+  ACM, 2011.
+
+\bibitem{fraser2013whole}
+Gordon Fraser and Andrea Arcuri.
+\newblock Whole test suite generation.
+\newblock {\em IEEE Transactions on Software Engineering}, 39(2):276--291,
+  2013.
+
+\bibitem{fraser20151600}
+Gordon Fraser and Andrea Arcuri.
+\newblock 1600 faults in 100 projects: Automatically finding faults while
+  achieving high coverage with evosuite.
+\newblock {\em Empirical Software Engineering}, 20(3):611--639, 2015.
+
+\bibitem{gendreau2010handbook}
+Michel Gendreau and Jean-Yves Potvin.
+\newblock {\em Handbook of metaheuristics}, volume~2.
+\newblock Springer, 2010.
+
+\bibitem{glover1986future}
+Fred Glover.
+\newblock Future paths for integer programming and links to artificial
+  intelligence.
+\newblock {\em Computers \& operations research}, 13(5):533--549, 1986.
+
+\bibitem{gonccalves2011biased}
+Jos{\'e}~Fernando Gon{\c{c}}alves and Mauricio~GC Resende.
+\newblock Biased random-key genetic algorithms for combinatorial optimization.
+\newblock {\em Journal of Heuristics}, 17(5):487--525, 2011.
+
+\bibitem{gonccalves2014experimental}
+Jos{\'e}~Fernando Gon{\c{c}}alves, Mauricio~GC Resende, and Rodrigo~F Toso.
+\newblock An experimental comparison of biased and unbiased random-key genetic
+  algorithms.
+\newblock {\em Pesquisa Operacional}, 34(2):143--164, 2014.
+
+\bibitem{luke2009essentials}
+Sean Luke.
+\newblock {\em Essentials of metaheuristics}, volume 113.
+\newblock Lulu Raleigh, 2009.
+
+\bibitem{McMinn:2011}
+P.~McMinn.
+\newblock Search-based software testing: Past, present and future.
+\newblock {\em 2011 IEEE Fourth International Conference on Software Testing,
+  Verification and Validation Workshops}, pages 153--163, 2011.
+
+\bibitem{Miller:1976}
+W.~Miller and D.~Spooner.
+\newblock Automatic generation of floating-point test data.
+\newblock {\em IEEE Transactions on Software Engineering}, 2(3):223--226, 1976.
+
+\bibitem{nayyar2017simulation}
+Anand Nayyar and Rajeshwar Singh.
+\newblock Simulation and performance comparison of ant colony optimization
+  (aco) routing protocol with aodv, dsdv, dsr routing protocols of wireless
+  sensor networks using ns-2 simulator.
+\newblock {\em American Journal of Intelligent Systems}, 7(1):19--30, 2017.
+
+\end{thebibliography}
