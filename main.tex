@@ -86,6 +86,22 @@ Projetar e rodar experimento com todas ou um subconjunto e comparar.
 
 \newpage
 
+\section{Introdução}
+
+As publicações em "Teste de Software Baseados em Busca" começaram em 1976 com [1]. Mas foi depois de vários anos, em 1990, que Korel [3], [4] deu continuidade a essa linha de pesquisa, e em 1992, [5] aplicou algoritmos genéticos em geração de casos de teste. 
+
+Em geração de casos de testes por meio de algoritmos de busca, as entradas são geradas aleatóriamente até que os objetivos do teste seja satisfeito [0]. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis. O ideal é utilizar algoritmos mais guiados, assim como algumas meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido pela meta-heurística, que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
+
+Alguns exemplos de aplicações de funções de fitness, presentes em [0]:
+
+Testes temporais: busca aproximar os tempos de execução para o melhor e pior caso para componentes de um sistema. Uma forma de modelar esse problema como teste baseado em buscas, é definindo a função de fitness como sendo o tempo de execução do componente, para uma dada entrada. Para melhorar a qualidade dos atributos encontrados pela busca, pode ser utilizada análise estática.
+
+Testes funcionais: busca testar a funcionalidade de componentes de um sistema. Um exemplo de teste funcional baseado em busca é dado em [6], [7], onde foi testado um sistema de estacionamento que identifica uma vaga de etacionamento e automaticamente manobra o carro para estacioná-lo na vaga sem causar colisões. A função de fitness usada foi então a distância mínima até um ponto de colisão, onde o objetivo era então minimizar essa distância, para detectar possíveis falhas no sistema.
+
+Testes estruturais: foi a origem de testes baseados em busca, apresentada em [1], e é a área de aplicação que mais vem atraindo atenção em testes baseados em busca. Para testes de cobertura de branches, por exemplo, pode ser utilizada uma função de fitness dada pela normalização da distância de branch, até um dado nó da árvore do programa.
+
+
+
 \section{Referencial EvoSuite}
 
 \textit{EvoSuite} é uma ferramenta que automatiza a geração de suítes de testes com alta taxa de cobertura, pequenas o suficiente e fornece asserções. Ele gera as suítes de testes tantos para classes individuais quanto para projetos inteiros, sem requerer comandos complicados adicionais. Esta ferramenta é livre, e pode ser usada em linha de comando ou como  plugins para da plataformas de desenvolvimento como por exemplo o Eclipse\footnote{http://www.evosuite.org/downloads/} \cite{fraser2011evosuite}.
@@ -110,7 +126,7 @@ Para determinar a importância e efetividade das asserções, o \textit{EvoSuite
 
 \subsection{Resultados do \textit{EvoSuite}}
 
-\citeauthor{fraser20151600} testaram 100 projetos de código aberto selecionados randomicamente a fim de avaliarem.
+\citeauthor{fraser20151600} testaram 100 projetos de código aberto selecionados randomicamente no \textit{EvoSuite} a fim de avaliarem a escalabilidade quando existem vários testes. Neste trabalho é mostrado que o \textit{EvoSuite} é capaz de exercitar oráculos automatizados e produzir alta cobertura de testes ao mesmo tempo. Nos experimentos foram encontrados 32594 falhas distintas em 8844 classes, o que pode pode ser considerado pelo menos 1694 como falhas reais \cite{fraser20151600}.
 
 
 \newpage
