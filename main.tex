@@ -15,19 +15,19 @@
 \title{Teste de Software Baseado  \\ em Meta-heurísticas
 }
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Rafael Grisotto e Souza}
+\author{\IEEEauthorblockN{ Paulo Henrique Carvalho de Morais}
 \IEEEauthorblockA{\textit{Instituto de Computação} \\
 \textit{Universidade Estadual de Campinas}\\
 Campinas, Brasil \\
 email address}
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Vinícius Loti de Lima}
+\IEEEauthorblockN{ Rafael Grisotto e Souza}
 \IEEEauthorblockA{\textit{Instituto de Computação} \\
 \textit{Universidade Estadual de Campinas}\\
 Campinas, Brasil \\
-email address}
+rafaelgrisotto@students.ic.unicamp.br}
 \and
-\IEEEauthorblockN{3\textsuperscript{rd} Paulo Henrique Carvalho de Morais}
+\IEEEauthorblockN{ Vinícius Loti de Lima}
 \IEEEauthorblockA{\textit{Instituto de Computação} \\
 \textit{Universidade Estadual de Campinas}\\
 Campinas, Brasil \\
@@ -47,7 +47,7 @@ software, teste, busca, meta-heurística, \emph{EvoSuite}
 
 \section{Introdução}
 
-AO desenPublicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos mais guiados, assim como meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido, e que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
+No desenvolvimento de softwares, etapas de teste do software são essenciais para garantir um produto final de qualidade. Publicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos mais guiados, assim como meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido, e que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
 
 Alguns exemplos de aplicações de funções de fitness, presentes em \cite{McMinn:2011}:
 
@@ -97,7 +97,7 @@ Para determinar a importância e efetividade das asserções, o \textit{EvoSuite
 
 \subsection{Resultados do \textit{EvoSuite}}
 
-Em \cite{fraser2013whole} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca anteriores. Neste trabalho foram testados 6 bibliotecas de estudo de casos no \textit{EvoSuite}, e a média de cobertura obtida foi superior, quando comparado com a abordagem padrão de um único critério de cobertura por vez.
+Em \cite{fraser2013whole} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca anteriores. Neste trabalho o \textit{EvoSuite} foi testado sobre 5 bibliotecas de , e a média de cobertura obtida foi superior, quando comparado com a abordagem padrão de um único critério de cobertura por vez.
 
 \begin{figure}[!htb]
   \centering
