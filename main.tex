@@ -207,21 +207,23 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
 
         Todas as variações descritas no algoritmo genético \ref{sec:alg_genetic} são possíveis de se aplicadas no BRKGA. 
 
-%\subsection{GRASP}
-%\label{sec:grasp}
+\subsection{GRASP}
+\label{sec:grasp}
 
-    %O GRASP (Greedy Randomized Adaptive Search Procedure) para problemas de otimização combinatória foi introduzida por Feo e Resende \cite{feo1989probabilistic}. O GRASP tem sua iteração
-    %primeiramente a construção de uma solução inicial a partir de uma heurística construtiva gulosa e aleatória. Depois, é realizado uma busca local com intenção de explorar a vizinhança da
-    %solução inicial até atingir um mínimo local do espaço de soluções. Após um critério de parada como quantidade de iterações ou tempo de processamento o GRASP devolve a melhor solução
-    %encontrada e termina sua execução.
+    O GRASP (Greedy Randomized Adaptive Search Procedure) para problemas de otimização combinatória foi introduzida por Feo e Resende \cite{feo1989probabilistic}. O GRASP tem sua iteração
+    primeiramente a construção de uma solução inicial a partir de uma heurística construtiva gulosa e aleatória. Depois, é realizado uma busca local com intenção de explorar a vizinhança da
+    solução inicial até atingir um mínimo local do espaço de soluções. Após um critério de parada como quantidade de iterações ou tempo de processamento o GRASP devolve a melhor solução
+    encontrada e termina sua execução.
 
+    Algumas variações que podem ser aplicadas:
+    \begin{enumerate}
 
+        \item \textbf{Reactive GRASP}: A próxima escolha entre aleatório ou guloso fica definida pelas iterações anteriores e não originalmente que é sempre aleatória;
 
-    %\subsubsection{Busca Local}
+        \item \textbf{POP in Construction}: Aplicando busca local durante a fase de construção com o principio de que boas soluções estão mais provavelmente próximas a melhores soluções.
 
-        %Método de Busca Local: regula o tipo de busca realizada na fase de busca local. Aceita valores '\textit{best improving}' ou '\textit{first improving'}. O primeiro busca por toda a vizinhança
-        %a procura da melhor solução local do valor objetivo possível, enquanto o segundo procura apenas pela primeira melhoria no valor objetivo;
-
+        \item \textbf{Busca Tabu}: Podemos usar a Busca Tabu como processo de busca local do GRASP.
+    \end{enumerate}
 
 
 
