@@ -47,12 +47,14 @@ software, teste, busca, meta-heurística, \emph{EvoSuite}
 
 \section{Introdução}
 
-Em desenvolvimento de softwares, etapas de teste do software são essenciais para garantir um produto final de qualidade. A realização de testes busca minimizar os erros no software. No entanto, nem sempre é possível eliminar todos os erros de um software por meio de testes. A minimização dos erros é um fator dependente dos casos de teste gerados. Publicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos mais guiados, assim como meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido, e que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
+Em desenvolvimento de softwares, etapas de teste do software são essenciais para garantir um produto final de qualidade, sendo que a realização de testes busca minimizar o número de erros no software. No entanto, nem sempre é possível eliminar todos os erros de um software por meio de testes, sendo que a minimização dos erros é um fator dependente dos casos de teste gerados. Dado esse cenário, a literatura tem investigado várias metodologias para geração de casos de teste para software. 
 
-Alguns exemplos de aplicações de funções de fitness, presentes em \cite{McMinn:2011}:
+Publicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos que podem ser guiados por determinados fatores da busca, como por exemplo, as meta-heurísticas, onde existe uma função para guiar a busca chamada de função de fitness (\emph{fitness function}). A função de fitness é dependente do problema sendo resolvido, e serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. Pode-se observar então que a escolha de uma função de fitness eficiente é essencial para o bom desempenho da meta-heurística, e portanto, um bom desempenho da busca.
+
+A seguir, são apresentados alguns exemplos de aplicações de funções de fitness em testes de software baseados em busca, presentes em \cite{McMinn:2011}:
 
 \begin{itemize}
-\item Testes temporais: busca aproximar os tempos de execução para o melhor e pior caso para componentes de um sistema. Uma forma de modelar esse problema como teste baseado em buscas, é definindo a função de fitness como sendo o tempo de execução do componente, para uma dada entrada. Para melhorar a qualidade dos atributos encontrados pela busca, pode ser utilizada análise estática.
+\item Testes temporais: busca aproximar os tempos de execução para o melhor e pior caso para componentes de um sistema. Muitas vezes, esses podem ser aproximados com análise estática. No entanto, a análise estática tende a ser conservativa, sobre-estimando o pior caso e sub-estimando o melhor caso. Uma forma de modelar esse problema como teste baseado em buscas, é definindo a função de fitness como sendo o tempo de execução do componente, para uma dada entrada. Nesse caso, o melhor caso será sobre-estimado e o pior caso sub-estimado. Portanto, pode-se melhorar a qualidade dos atributos encontrados pela busca, ao fazer análises juntamente com os atributos encontrados pela análise estática.
 
 \item Testes funcionais: busca testar a funcionalidade de componentes de um sistema. Um exemplo de teste funcional baseado em busca é dado em \cite{Buhler:2003}, \cite{Buhler:2008}, onde foi testado um sistema de estacionamento que identifica uma vaga de estacionamento e automaticamente manobra o carro para estacioná-lo na vaga sem causar colisões. A função de fitness usada foi então a distância mínima até um ponto de colisão, onde o objetivo era então minimizar essa distância, para detectar possíveis falhas no sistema.
 
@@ -65,8 +67,6 @@ Alguns exemplos de aplicações de funções de fitness, presentes em \cite{McMi
 %    \item Lidar com o ambiente de execução: O estado-da-arte atual ignora o ambiente de execução do software, ao propor as técnicas de teste baseado em busca. 
     
 %    \item Abordagens avançadas para melhorar a testabilidade: Pelo fato das funções de fitness serem heurísticas, nem sempre elas conseguem guiar a busca da solução de forma adequada. Dado esse cenário, o que então pode ser feito para melhorar a busca?
-    
-%    \item Oráculos automatizados por meio de transformação ode testabilidade: 
     
 %\end{itemize}
 
@@ -81,13 +81,14 @@ O \textit{EvoSuite} utiliza \textit{whole test suite generation} e \textit{Mutat
 
 \subsection{Whole Test Suite Generation}
 
-Uma abordagem comum na literatura é gerar um caso de teste para cada meta individuais de cobertura (ex, \textit{branches in branch coverage}), e então os combinam em uma única suíte de teste. Porém, o tamanho resultante da suíte de testes é difícil de predizer pois um caso de teste gerado para uma meta pode implicitamente também cobrir qualquer quantidade de metas de cobertura à frente. Ou seja, a ordem em que cada meta é escolhida pode desempenhar um papel importante, pois pode haver dependências entre elas. Há outros problemas quando se considera uma meta de cada vez, como metas quem podem ser mais difíceis de cobrir do que outras, ou até mesmo serem inviáveis \cite{fraser2013whole}.
+Uma abordagem comum na literatura é gerar um caso de teste para cada meta de cobertura individual (ex, \textit{branches in branch coverage}), e então os combinam em uma única suíte de teste. Porém, é difícil de predizer o tamanho resultante da suíte de testes, pois um caso de teste gerado para uma meta pode implicitamente também cobrir qualquer quantidade de metas de cobertura à frente. Ou seja, a ordem em que cada meta é escolhida pode desempenhar um papel importante, pois pode haver dependências entre elas. Há outros problemas quando se considera uma meta de cada vez, como metas quem podem ser mais difíceis de cobrir do que outras, ou até mesmo serem inviáveis \cite{fraser2013whole}.
 
 Para superar esses problemas, \textit{whole test suite generation} é uma abordagem que não produz casos de testes para cada meta individual de cobertura, ao invés disso foca em suítes de testes visando um completo critério de cobertura. Otimizando em relação em critério de cobertura ao invés de metas individuais cobertura tem resultados que não são influenciados pela ordem, pela dificuldade nem pela inviabilidade dos casos de testes \cite{fraser2011evosuite}.
 
 \textit{EvoSuite} implementa \textit{whole test suite generation} como um algoritmo genético, onde uma suíte de testes é considerada como uma solução candidata. Cada suíte de teste consiste de um número variável de casos de testes, que por sua vez, consiste em uma sequência de instruções. O crossover entre duas suítes de testes são trocados casos de testes entre si baseado em uma escolha aleatória da posição do crossover. A mutação de uma suíte de teste adiciona novos casos de testes, ou modifica testes individuais. Já a mutação de casos de testes são adicionados, removidos ou mudados instruções ou parâmetros.
 
-O \textit{fitness} dos indivíduos é calculado com base a um critério de cobertura, no caso o \textit{EvoSuite} usa \textit{branch coverage} como critério de teste. Para que seja realizada a evolução são recompensados aqueles indivíduos o quais possuem uma melhor cobertura. Quanto maior o tamanho das suítes de testes maior a chance de cobrir as metas de cobertura, e o \textit{EvoSuite} permite que a busca aprofunde em sequencias longas, porém é aplicado várias técnicas de \textit{bloat control}. Essa técnicas de \textit{bloat control} assegura que indivíduos não fiquem excecivamente muito grandes, com isso, no fim da busca as suítes de testes são minimizadas tal que apenas instruções contribuindo para a cobertura permaneçam.
+
+O \textit{fitness} dos indivíduos é calculado com base a um critério de cobertura, no caso o \textit{EvoSuite} usa \textit{branch coverage} como critério de teste. Para que seja realizada a evolução são recompensados aqueles indivíduos o quais possuem uma melhor cobertura. Quanto maior o tamanho das suítes de testes maior a chance de cobrir as metas de cobertura, e o \textit{EvoSuite} permite que a busca aprofunde em sequencias longas, porém é aplicado várias técnicas de \textit{bloat control}. Essa técnicas de \textit{bloat control} assegura que indivíduos não fiquem excessivamente muito grandes, com isso, no fim da busca as suítes de testes são minimizadas tal que apenas instruções contribuindo para a cobertura permaneçam.
 
 \subsection{Mutation-Based Assertion Generation}
 
@@ -97,7 +98,7 @@ Para determinar a importância e efetividade das asserções, o \textit{EvoSuite
 
 \subsection{Resultados do \textit{EvoSuite}}
 
-Em \cite{fraser2011evolutionary} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca anteriores. O \textit{EvoSuite} foi testado sobre 5 bibliotecas de código aberto e uma da indústria assim totalizando 1308 classes, onde a API foi chamada 727 classes públicas (as classes restantes são privadas ou anonimas). A média de cobertura obtida foi superior em relação com a abordagem padrão de um único critério de cobertura por vez.
+Em \cite{fraser2011evolutionary} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca. O \textit{EvoSuite} foi testado sobre 5 bibliotecas de código aberto e uma da indústria assim totalizando 1308 classes, onde a API foi chamada 727 classes públicas (as classes restantes são privadas ou anonimas). Os resultados obtidos foram que \textit{whole test suite generation} alcança maior cobertura e menores suítes de testes em comparações com \textit{single branch test case generation}.
 
 \begin{figure}[!htb]
   \centering
@@ -115,16 +116,13 @@ Já em \cite{fraser20151600}, foram testados 100 projetos de código aberto sele
 \section{Meta-Heurísticas} \label{MetaHeuristicas}
 
 Meta-heurística é um subcampo primário da otimização estocástica, que consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a melhor possível) para problemas reconhecidamente difíceis. \cite{luke2009essentials} \cite{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos
-uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos.  
+uma vez que não se trata de heurística sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos.  
 
-As próximas secções descrevem as meta-heurísticas que iremos utiliza ou tentar utilizar no problema de teste de software com o \textit{Evosuite}.
+As próximas sub-seções descrevem as meta-heurísticas que tentaremos utilizar no problema de teste de software com o \textit{Evosuite}.
 
 \subsection{Colonia de formigas}
 
-Uma meta-heurista bio-inspirada que pode ser útil para o nosso projeto é Colônia de Formigas \cite{dorigo1999ant} ( do inglês \textit{Ant Colony Optimization} ) que surgiu da observação do
-comportamento das formigas reais e incluso técnicas de busca local posteriormente. Utiliza algoritmo guloso para para construir a solução inicial e para soluções viáveis. Outro ponto
-importante é a quantidade de feromônio depositado pelas formigas que dá a visibilidade que é a capacidade dada às formigas de observar os elementos que compõem a solução ou o caminho que
-elas estão percorrendo.
+Uma meta-heurística bio-inspirada que pode ser útil para o nosso projeto é Colônia de Formigas \cite{dorigo1999ant} ( do inglês \textit{Ant Colony Optimization} ) que surgiu da observação do comportamento das formigas reais e incluí técnicas de busca local. O algoritmo de colônia de formigas faz o uso de um algoritmo guloso para para construir a solução inicial e soluções viáveis. Outro ponto importante é a quantidade de feromônio depositado pelas formigas que dá a visibilidade que é a capacidade dada às formigas de observar os elementos que compõem a solução ou o caminho que elas estão percorrendo.
 
 
 
