@@ -1929,15 +1929,16 @@
     <bcf:citekey order="4">fraser2011evosuite</bcf:citekey>
     <bcf:citekey order="5">fraser2011evosuite</bcf:citekey>
     <bcf:citekey order="6">fraser20151600</bcf:citekey>
-    <bcf:citekey order="7">luke2009essentials</bcf:citekey>
+    <bcf:citekey order="7">fraser20151600</bcf:citekey>
     <bcf:citekey order="8">luke2009essentials</bcf:citekey>
-    <bcf:citekey order="9">dorigo1999ant</bcf:citekey>
-    <bcf:citekey order="10">gendreau2010handbook</bcf:citekey>
-    <bcf:citekey order="11">gonccalves2011biased</bcf:citekey>
-    <bcf:citekey order="12">bean1994genetic</bcf:citekey>
-    <bcf:citekey order="13">glover1986future</bcf:citekey>
+    <bcf:citekey order="9">luke2009essentials</bcf:citekey>
+    <bcf:citekey order="10">dorigo1999ant</bcf:citekey>
+    <bcf:citekey order="11">gendreau2010handbook</bcf:citekey>
+    <bcf:citekey order="12">gonccalves2011biased</bcf:citekey>
+    <bcf:citekey order="13">bean1994genetic</bcf:citekey>
     <bcf:citekey order="14">glover1986future</bcf:citekey>
-    <bcf:citekey order="15">gendreau2010handbook</bcf:citekey>
+    <bcf:citekey order="15">glover1986future</bcf:citekey>
+    <bcf:citekey order="16">gendreau2010handbook</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
