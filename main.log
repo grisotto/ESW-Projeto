@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.18)  2 JUN 2018 19:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.18)  2 JUN 2018 20:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1049,7 +1049,11 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'brazil'.
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `sec:alg_genetic' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -1192,39 +1196,47 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 95.
- [2] [3]
+ [2]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 149.
- [4] [5]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 226.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 111.
+ [3] [4]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 208.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 226.
-
-Overfull \hbox (2.55396pt too wide) in paragraph at lines 235--236
-[]\T1/ptm/m/n/12 Todas as va-ri-a-ções des-cri-tas no al-go-ritmo ge-né-tico 2.7[] são pos-sí-veis de se apli-ca-das no BRKGA. 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 208.
+ [5]
+Overfull \hbox (2.55396pt too wide) in paragraph at lines 217--218
+[]\T1/ptm/m/n/12 Todas as va-ri-a-ções des-cri-tas no al-go-ritmo ge-né-tico 2.8[] são pos-sí-veis de se apli-ca-das no BRKGA. 
  []
 
-[6] [7] [8] (./main.aux)
+[6]
+Overfull \hbox (3.34668pt too wide) in paragraph at lines 287--287
+[]\T1/ptm/m/n/12 Gordon Fra-ser e An-drea Ar-curi. ^^P  Evo-suite: au-to-ma-tic test suite ge-ne-ra-tion for object-oriented
+ []
+
+[7] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22811 strings out of 492982
- 424864 string characters out of 6134896
- 833722 words of memory out of 5000000
- 25928 multiletter control sequences out of 15000+600000
+ 22797 strings out of 492982
+ 424581 string characters out of 6134896
+ 828524 words of memory out of 5000000
+ 25914 multiletter control sequences out of 15000+600000
  66225 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,76p,976b,1578s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,9n,76p,976b,1573s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 101962 bytes).
+Output written on main.pdf (7 pages, 100038 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

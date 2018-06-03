@@ -75,39 +75,72 @@
       \field{pages}{154\bibrangedash 160}
       \range{pages}{7}
     \endentry
-    \entry{feo1989probabilistic}{article}{}
+    \entry{dorigo1999ant}{inproceedings}{}
       \name{author}{2}{}{%
-        {{hash=1d2b413e1a4b6b1c271a5857939bbd38}{%
-           family={Feo},
+        {{hash=26c8dbd8b76182fc666371044ae8dfa4}{%
+           family={Dorigo},
+           familyi={D\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6b54ec884bae0b14072b656eb70492fa}{%
+           family={Di\bibnamedelima Caro},
+           familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Gianni},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{39fa1686721dc076d85328f8cdf99a0c}
+      \strng{fullhash}{39fa1686721dc076d85328f8cdf99a0c}
+      \strng{bibnamehash}{39fa1686721dc076d85328f8cdf99a0c}
+      \strng{authorbibnamehash}{39fa1686721dc076d85328f8cdf99a0c}
+      \strng{authornamehash}{39fa1686721dc076d85328f8cdf99a0c}
+      \strng{authorfullhash}{39fa1686721dc076d85328f8cdf99a0c}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Evolutionary Computation, 1999. CEC 99. Proceedings of the 1999 Congress on}
+      \field{title}{Ant colony optimization: a new meta-heuristic}
+      \field{volume}{2}
+      \field{year}{1999}
+      \field{pages}{1470\bibrangedash 1477}
+      \range{pages}{8}
+    \endentry
+    \entry{fraser20151600}{article}{}
+      \name{author}{2}{}{%
+        {{hash=fc66f39b83d69c05a49d023f90b98586}{%
+           family={Fraser},
            familyi={F\bibinitperiod},
-           given={Thomas\bibnamedelima A},
-           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=3757e63648a544441d16453d28be126d}{%
-           family={Resende},
-           familyi={R\bibinitperiod},
-           given={Mauricio\bibnamedelima GC},
-           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+           given={Gordon},
+           giveni={G\bibinitperiod}}}%
+        {{hash=ce60719b000244b24fc4e01f2153d73c}{%
+           family={Arcuri},
+           familyi={A\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Elsevier}%
+        {Springer}%
       }
-      \strng{namehash}{8a98eb2331f0499d31513fa507f3813a}
-      \strng{fullhash}{8a98eb2331f0499d31513fa507f3813a}
-      \strng{bibnamehash}{8a98eb2331f0499d31513fa507f3813a}
-      \strng{authorbibnamehash}{8a98eb2331f0499d31513fa507f3813a}
-      \strng{authornamehash}{8a98eb2331f0499d31513fa507f3813a}
-      \strng{authorfullhash}{8a98eb2331f0499d31513fa507f3813a}
+      \strng{namehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{fullhash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{bibnamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authorbibnamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authornamehash}{d95dbcd4db61e2a19f505ca237691110}
+      \strng{authorfullhash}{d95dbcd4db61e2a19f505ca237691110}
       \field{sortinit}{F}
       \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Operations research letters}
-      \field{number}{2}
-      \field{title}{A probabilistic heuristic for a computationally difficult set covering problem}
-      \field{volume}{8}
-      \field{year}{1989}
-      \field{pages}{67\bibrangedash 71}
-      \range{pages}{5}
+      \field{journaltitle}{Empirical Software Engineering}
+      \field{number}{3}
+      \field{title}{1600 faults in 100 projects: Automatically finding faults while achieving high coverage with evosuite}
+      \field{volume}{20}
+      \field{year}{2015}
+      \field{pages}{611\bibrangedash 639}
+      \range{pages}{29}
     \endentry
     \entry{fraser2011evosuite}{inproceedings}{}
       \name{author}{2}{}{%
