@@ -47,7 +47,7 @@ software, teste, busca, meta-heurística, \emph{EvoSuite}
 
 \section{Introdução}
 
-Publicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos mais guiados, assim como meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido, e que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
+AO desenPublicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos mais guiados, assim como meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido, e que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
 
 Alguns exemplos de aplicações de funções de fitness, presentes em \cite{McMinn:2011}:
 
@@ -104,8 +104,7 @@ Em \cite{fraser2013whole} é mostrado que a implementação de \textit{whole tes
   \caption{Média de cobertura do EvoSuite em comparação com abordagem padrão de um único critério de cobertura por vez (Single).}
   \includegraphics[scale=0.7]{imagens/imagem1.png}
   \label{figura_cobertura}
-  \legend{Fonte: %\cite{fraser2011evosuite} 
-  }
+ % \legend{Fonte: %\cite{fraser2011evosuite} }
 \end{figure}
 
 Já em \cite{fraser20151600}, foram testados 100 projetos de código aberto selecionados aleatoriamente no \textit{EvoSuite}, a fim de avaliar a escalabilidade quando existem vários testes. Os autores mostram que o \textit{EvoSuite} é capaz de exercitar oráculos automatizados e produzir alta cobertura de testes ao mesmo tempo. Nos experimentos foram encontrados 32594 falhas distintas em 8844 classes, tal que 1694 dessas falhas podem ser consideradas como falhas reais \cite{fraser20151600}.
