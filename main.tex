@@ -5,7 +5,6 @@
 %Paulo - adicona esta linha
 \usepackage[backend=biber, doi=true, maxbibnames=9, maxcitenames=2]{biblatex}
 
-
 \usepackage[left=2.5cm,right=2cm,top=2cm,bottom=2.5cm]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -162,12 +161,12 @@ elas estão percorrendo.
 Um algoritmo genético simula a seleção natural, onde cada indivíduo compete com os outros para sobreviver com base em sua aptidão (\emph{fitness}). Os indivíduos que sobrevivem ao passo de
 seleção passam por operações genéticas (cruzamentos e mutações), simulando o que ocorre na biologia, para assim criar uma nova população.
 
-    \subsection{Método de seleção de indivíduos}
+    \subsubsection{Método de seleção de indivíduos}
 
         Torneio funciona que até que se tenha cromossomos suficientes para fazer a recombinação, nesse caso 4, dois cromossomos são escolhidos aleatoriamente da população, usando uma distribuição de
         probabilidade uniforme, e o de melhor \textit{fitness} é selecionado para o processo de recombinação.
 
-    \subsection{Método de \textit{crossover}}
+    \subsubsection{Método de \textit{crossover}}
 
         Operador de \textit{crossover} $C1$ são dados dois pais, $p_1$ e $p_2$, é escolhido um ponto de corte até o qual o filho será igual ao $p_1$. Então, os elementos que faltarem no
         cromossomo filho (todos os clientes faltantes até o ponto de corte) são inseridos no filho seguindo a ordem em que aparecem em $p_2$. 
@@ -196,7 +195,7 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
         Após a mutação, também é necessário fazer correções, pois pode haver indivíduos inválidos devido às restrições do problema.
 
 
-    \subsection{\emph{Steady-state}}
+    \subsubsection{\emph{Steady-state}}
 
         Tipicamente, a execução de um algoritmo genético é dividido em gerações que são substituídas (quase que por completo) a cada iteração do algoritmo. No caso do algoritmo genético
         \emph{steady state} apenas alguns indivíduos são substituídos ao final de cada iteração.
