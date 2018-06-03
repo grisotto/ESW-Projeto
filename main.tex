@@ -19,7 +19,7 @@
 \IEEEauthorblockA{\textit{Instituto de Computação} \\
 \textit{Universidade Estadual de Campinas}\\
 Campinas, Brasil \\
-email address}
+ra192877@unicamp.br}
 \and
 \IEEEauthorblockN{ Rafael Grisotto e Souza}
 \IEEEauthorblockA{\textit{Instituto de Computação} \\
@@ -31,7 +31,7 @@ rafaelgrisotto@students.ic.unicamp.br}
 \IEEEauthorblockA{\textit{Instituto de Computação} \\
 \textit{Universidade Estadual de Campinas}\\
 Campinas, Brasil \\
-email address}
+ra209829@ic.unicamp.br}
 }
 
 \maketitle
@@ -47,7 +47,7 @@ software, teste, busca, meta-heurística, \emph{EvoSuite}
 
 \section{Introdução}
 
-No desenvolvimento de softwares, etapas de teste do software são essenciais para garantir um produto final de qualidade. Publicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos mais guiados, assim como meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido, e que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
+Em desenvolvimento de softwares, etapas de teste do software são essenciais para garantir um produto final de qualidade. A realização de testes busca minimizar os erros no software. No entanto, nem sempre é possível eliminar todos os erros de um software por meio de testes. A minimização dos erros é um fator dependente dos casos de teste gerados. Publicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos mais guiados, assim como meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido, e que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
 
 Alguns exemplos de aplicações de funções de fitness, presentes em \cite{McMinn:2011}:
 
@@ -70,7 +70,7 @@ Alguns exemplos de aplicações de funções de fitness, presentes em \cite{McMi
     
 %\end{itemize}
 
-Em 2011, \cite{fraser2011evosuite} propuseram a ferramenta \emph{EvoSuite}, uma ferramenta para geração automatizada de casos de teste que utiliza algoritmos de busca. A meta-heurística utilizada pelos autores para os experimentos foi um algoritmo genético. O objetivo do artigo presente é apresentar algumas informações relevantes da ferramenta \emph{EvoSuite} e de meta-heurísticas que podem ser utilizadas juntamente com o \emph{EvoSuite} para geração de caso, para em uma pesquisa futura, realizar testes de qual é o comportamento do \emph{EvoSuite} ao se utilizar diferentes heurísticas. O artigo está organizado da seguinte forma, na presente Seção foi dada uma introdução, na Seção \ref{ReferencialEvoSuite} é apresentado um referencial do \emph{EvoSuite} e na seção \ref{MetaHeuristicas} é apresentado um referencial de meta-heurísticas.
+Em 2011, \cite{fraser2011evosuite} propuseram a ferramenta \emph{EvoSuite}, uma ferramenta para geração automatizada de casos de teste que utiliza algoritmos de busca. A meta-heurística utilizada pelos autores para os experimentos foi um algoritmo genético. O objetivo do artigo presente é apresentar algumas informações relevantes da ferramenta \emph{EvoSuite} e de meta-heurísticas que podem ser utilizadas juntamente com o \emph{EvoSuite} para geração de casos de teste, para em uma pesquisa futura, realizar testes de qual é o comportamento do \emph{EvoSuite} ao se utilizar diferentes heurísticas. O artigo está organizado da seguinte forma, na presente Seção foi dada uma introdução, na Seção \ref{ReferencialEvoSuite} é apresentado um referencial do \emph{EvoSuite} e na seção \ref{MetaHeuristicas} é apresentado um referencial de meta-heurísticas.
 
 
 \section{Referencial EvoSuite} \label{ReferencialEvoSuite}
@@ -97,14 +97,14 @@ Para determinar a importância e efetividade das asserções, o \textit{EvoSuite
 
 \subsection{Resultados do \textit{EvoSuite}}
 
-Em \cite{fraser2013whole} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca anteriores. Neste trabalho o \textit{EvoSuite} foi testado sobre 5 bibliotecas de , e a média de cobertura obtida foi superior, quando comparado com a abordagem padrão de um único critério de cobertura por vez.
+Em \cite{fraser2011evolutionary} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca anteriores. O \textit{EvoSuite} foi testado sobre 5 bibliotecas de código aberto e uma da indústria assim totalizando 1308 classes, onde a API foi chamada 727 classes públicas (as classes restantes são privadas ou anonimas). A média de cobertura obtida foi superior em relação com a abordagem padrão de um único critério de cobertura por vez.
 
 \begin{figure}[!htb]
   \centering
-  \caption{Média de cobertura do EvoSuite em comparação com abordagem padrão de um único critério de cobertura por vez (Single).}
   \includegraphics[scale=0.7]{imagens/imagem1.png}
   \label{figura_cobertura}
- % \legend{Fonte: %\cite{fraser2011evosuite} }
+  \caption{Média de cobertura: Mesmo com limite de evolução de 1 000 000 instruções,\textit{EvoSuite} alcançou cobertura superior \cite{fraser2011evolutionary}}
+ %\legend{Fonte: %\cite{fraser2011evosuite} }
 \end{figure}
 
 Já em \cite{fraser20151600}, foram testados 100 projetos de código aberto selecionados aleatoriamente no \textit{EvoSuite}, a fim de avaliar a escalabilidade quando existem vários testes. Os autores mostram que o \textit{EvoSuite} é capaz de exercitar oráculos automatizados e produzir alta cobertura de testes ao mesmo tempo. Nos experimentos foram encontrados 32594 falhas distintas em 8844 classes, tal que 1694 dessas falhas podem ser consideradas como falhas reais \cite{fraser20151600}.
@@ -200,6 +200,15 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
     (random-key genetic algorithms) \cite{bean1994genetic} e se obtém uma solução viável para o problema através da decodificação de uma solução codificada. A solução codificada são vetores de
     chaves aleatórias em um intervalo de números reais continuo $(0,1]$ e a decodificação é uma etapa que mapeia um vetor de chaves aleatórias numa solução do problema de otimização e calcula o
     seu custo. Note que o BRKGA tem como seu algoritmo sendo independente do problema. 
+    
+       \begin{figure}[!htb]
+  \centering
+ 
+  \includegraphics[scale=0.08]{imagens/brkga.jpg}
+  \label{figura_brkga}
+ \caption{Imagem mostrando o fluxo da meta-heurística BRKGA. \cite{gonccalves2014experimental}}
+ %\legend{Fonte: %\cite{fraser2011evosuite} }
+\end{figure}
 
     De forma resumida, a definição de algumas características do BRKGA: 
 
@@ -225,6 +234,16 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
     solução inicial até atingir um mínimo local do espaço de soluções. Após um critério de parada como quantidade de iterações ou tempo de processamento o GRASP devolve a melhor solução
     encontrada e termina sua execução.
 
+
+    \begin{figure}[!htb]
+  \centering
+ 
+  \includegraphics[scale=0.35]{imagens/grasp.png}
+  \label{figura_grasp}
+ \caption{Imagem ilustrativa de todo o processo da meta-heurística GRASP. \cite{fraser2013whole}}
+ %\legend{Fonte: %\cite{fraser2011evosuite} }
+\end{figure}
+
     Algumas variações que podem ser aplicadas:
     \begin{enumerate}
 
@@ -247,9 +266,17 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
     últimos 20 anos centenas de artigos utilizam Busca Tabu em diversos problemas de combinatória e mostrando ser bastante eficaz com resultados bem próximos do ótimo ou conseguindo o ótimo
     \cite{gendreau2010handbook}.
 
-    Na Busca Tabu precisamos definir muito bem o espaço de busca e a estrutura da vizinhança. Definir os critérios da restrição de movimentos. Pode ser complicado deixar a metaheuristica
+    Na Busca Tabu precisamos definir muito bem o espaço de busca e a estrutura da vizinhança. Definir os critérios da restrição de movimentos. Pode ser complicado deixar a meta-heurística
     suficientemente genética para ser usada no \emph{EvoSuite}, porém podemos pensar em casos não muito gerais e aplicar mecanismos de busca por intensificação e por diversidade.
 
+    \begin{figure}[!htb]
+  \centering
+ 
+  \includegraphics[scale=0.25]{imagens/busca-tabu.png}
+  \label{figura_tabu}
+ \caption{Imagem ilustrativa de todo o processo da meta-heurística Busca Tabu. \cite{fraser2013whole}}
+ %\legend{Fonte: %\cite{fraser2011evosuite} }
+\end{figure}
 
     \subsubsection{Intensificação}
 
