@@ -1,107 +1,77 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{inputenc} % sempre salve seus arquivos como UTF8
-\usepackage[T1]{fontenc}
-\usepackage[brazil]{babel}
-%Paulo - adicona esta linha
-\usepackage[backend=biber, doi=true, maxbibnames=9, maxcitenames=2]{biblatex}
-
-\usepackage[left=2.5cm,right=2cm,top=2cm,bottom=2.5cm]{geometry}
-\usepackage{amsmath}
-\usepackage{amsthm}
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
 \usepackage{graphicx}
-\usepackage{algorithm}
-\usepackage{color}
-\usepackage[noend]{algpseudocode}
-\usepackage{mathtools}
-\usepackage{fancybox}
-\usepackage{tikz}
-\usepackage{xargs}                      % Use more than one optional parameter in a new commands
-\usepackage{csquotes}
-\usepackage{xcolor}  % Coloured text etc.
-\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
-% load times font
-\usepackage{mathptmx}
-\usepackage[scaled=.90]{helvet}
-\usepackage{courier}
-%Qual linha?
-\bibliography{general.bib}
-
-% teoremas, lemas, etc...
-\newtheorem{questao}{Questão}
-\newtheorem{invariant}{Invariante}
-\newtheorem{theorem}{Teorema}
-\newtheorem{lemma}[theorem]{Lema}
-\renewcommand*{\proofname}{Demonstração}
-
-% comandos
-\newcommand{\mdc}[1]{\mathrm{mdc}(#1)}
-\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-% 
-\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
-\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
-\newcommandx{\info}[2][1=]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
-\newcommandx{\improvement}[2][1=]{\todo[linecolor=gray,backgroundcolor=gray!25,bordercolor=gray,#1]{#2}}
-\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
-
-\title{Otimização Combinatória em  \\ testes}
-\author{Rafael Grisotto e Souza - RA 192765\\ Vinícius Loti de Lima - RA 209829 \\ Paulo Henrique Carvalho de Morais - RA 192877}
-
-
-
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
+
+\title{Teste de Software Baseado  \\ em Meta-heurísticas
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Rafael Grisotto e Souza}
+\IEEEauthorblockA{\textit{Instituto de Computação} \\
+\textit{Universidade Estadual de Campinas}\\
+Campinas, Brasil \\
+email address}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Vinícius Loti de Lima}
+\IEEEauthorblockA{\textit{Instituto de Computação} \\
+\textit{Universidade Estadual de Campinas}\\
+Campinas, Brasil \\
+email address}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Paulo Henrique Carvalho de Morais}
+\IEEEauthorblockA{\textit{Instituto de Computação} \\
+\textit{Universidade Estadual de Campinas}\\
+Campinas, Brasil \\
+email address}
+}
 
 \maketitle
 
+\begin{abstract}
 
-%\begin{questao}
-%\end{questao}
+Esse artigo apresenta alguns conceitos de teste de software baseados busca, principalmente com o uso de meta-heurísticas. É apresentado então alguns conceitos do \emph{EvoSuite}, uma ferramenta para geração automatizada de casos de teste, assim como algumas meta-heurísticas que podem ser implementadas dentro do \emph{EvoSuite} para realizar as buscas dos casos de teste.
+\end{abstract}
 
-%Resumo de Search-Based Software Testing.
-%https://ieeexplore.ieee.org/document/5954405/
-
-%Descrever EvoSuite (meta heurística)
-%http://www.evosuite.org/publications/
-
-%Terminar: Resumo SBST e dizer o que iremos fazer com base nos slides, perguntas de pesquisa, avaliar os métodos e etc. 
-
-
-%Olhar os artigos deles para fazer experimentos.
-
-%Terminar Evosuite
-
-%Adicionar outras metaheurista e limpar um pouco o texto.
-
-%Alternativas para melhorar os resultados: meta heurística a, b, c, ...
-
-
-%Trabalho 2 começa aqui:
-%\cite{arcuri2017restful}
-%Projetar e rodar experimento com todas ou um subconjunto e comparar.
-
-%\listoftodos[Notes]
-
-
-
-%\newpage
+\begin{IEEEkeywords}
+software, teste, busca, meta-heurística, \emph{EvoSuite}
+\end{IEEEkeywords}
 
 \section{Introdução}
 
-As publicações em "Teste de Software Baseados em Busca" começaram em 1976 com [1]. Mas foi depois de vários anos, em 1990, que Korel [3], [4] deu continuidade a essa linha de pesquisa, e em 1992, [5] aplicou algoritmos genéticos em geração de casos de teste. 
+Publicações em "Teste de Software Baseado em Busca" tiveram início em 1976 com \cite{Miller:1976}. Foi depois de vários anos, em 1990, que Korel \cite{Korel:1990}, \cite{Korel:1992} deu continuidade a essa linha de pesquisa. Em testes de software baseados em busca, a geração de casos de testes por meio de algoritmos de busca, tal que as entradas são geradas aleatoriamente até que os objetivos do teste sejam satisfeito. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis \cite{McMinn:2011}. O ideal é utilizar algoritmos mais guiados, assim como meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido, e que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
 
-Em geração de casos de testes por meio de algoritmos de busca, as entradas são geradas aleatóriamente até que os objetivos do teste seja satisfeito [0]. Uma busca aleatória pode não ser muito eficiente para geração de casos de teste, quando o espaço de busca é muito maior do que o espaço de soluções viáveis. O ideal é utilizar algoritmos mais guiados, assim como algumas meta-heurísticas, onde existe uma função chamada de função de fitness (\emph{fitness function}), que é dependente do problema sendo resolvido pela meta-heurística, que serve para guiar a busca por soluções, retornando valores que indicam a qualidade de cada solução encontrada. 
+Alguns exemplos de aplicações de funções de fitness, presentes em \cite{McMinn:2011}:
 
-Alguns exemplos de aplicações de funções de fitness, presentes em [0]:
+\begin{itemize}
+\item Testes temporais: busca aproximar os tempos de execução para o melhor e pior caso para componentes de um sistema. Uma forma de modelar esse problema como teste baseado em buscas, é definindo a função de fitness como sendo o tempo de execução do componente, para uma dada entrada. Para melhorar a qualidade dos atributos encontrados pela busca, pode ser utilizada análise estática.
 
-Testes temporais: busca aproximar os tempos de execução para o melhor e pior caso para componentes de um sistema. Uma forma de modelar esse problema como teste baseado em buscas, é definindo a função de fitness como sendo o tempo de execução do componente, para uma dada entrada. Para melhorar a qualidade dos atributos encontrados pela busca, pode ser utilizada análise estática.
+\item Testes funcionais: busca testar a funcionalidade de componentes de um sistema. Um exemplo de teste funcional baseado em busca é dado em \cite{Buhler:2003}, \cite{Buhler:2008}, onde foi testado um sistema de estacionamento que identifica uma vaga de etacionamento e automaticamente manobra o carro para estacioná-lo na vaga sem causar colisões. A função de fitness usada foi então a distância mínima até um ponto de colisão, onde o objetivo era então minimizar essa distância, para detectar possíveis falhas no sistema.
 
-Testes funcionais: busca testar a funcionalidade de componentes de um sistema. Um exemplo de teste funcional baseado em busca é dado em [6], [7], onde foi testado um sistema de estacionamento que identifica uma vaga de etacionamento e automaticamente manobra o carro para estacioná-lo na vaga sem causar colisões. A função de fitness usada foi então a distância mínima até um ponto de colisão, onde o objetivo era então minimizar essa distância, para detectar possíveis falhas no sistema.
+\item Testes estruturais: foi a origem de testes baseados em busca, apresentada em \cite{Miller:1976}, e é a área de aplicação que mais vem atraindo atenção em testes baseados em busca. Alguns dos testes estruturais aos quais já foram desenvolvidas funções de fitness na literatura, é cobertura de caminhos (\emph{path coverage}, cobertura de ramos (\emph{branch coverage}) e cobertura de fluxo de dados (\emph{data flow coverage}). Para testes de cobertura de ramos, por exemplo, pode ser utilizada uma função de fitness dada pela normalização da distância de um dado nó da árvore do programa até o primeiro nó onde ocorre a divergência do possível caminho até o nó dado.
+\end{itemize}
 
-Testes estruturais: foi a origem de testes baseados em busca, apresentada em [1], e é a área de aplicação que mais vem atraindo atenção em testes baseados em busca. Para testes de cobertura de branches, por exemplo, pode ser utilizada uma função de fitness dada pela normalização da distância de branch, até um dado nó da árvore do programa.
+Alguns problemas em aberto e direções para pesquisas futuras em teste de software baseado em busca, são apresentados em \cite{McMinn:2011}:
+
+\begin{itemize}
+    \item Lidar com o ambiente de execução: O estado-da-arte atual ignora o ambiente de execução do software, ao propor as técnicas de teste baseado em busca. 
+    
+    \item 
+    
+\end{itemize}
+
+Em 2011, \cite{fraser2011evosuite} propuseram a ferramenta \emph{EvoSuite}, uma ferramenta para geração automatizada de casos de teste que utiliza algoritmos de busca. A meta-heurística utilizada pelos autores para os experimentos foi um algoritmo genético. O objetivo do artigo presente é apresentar algumas informações relevantes da ferramenta \emph{EvoSuite} e de meta-heurísticas que podem ser utilizadas juntamente com o \emph{EvoSuite} para geração de caso, para em uma pesquisa futura, realizar testes de qual é o comportamento do \emph{EvoSuite} ao se utilizar diferentes heurísticas. O artigo está organizado da seguinte forma, na presente Seção foi dada uma introdução, na Seção \ref{ReferencialEvoSuite} é apresentado um referencial do \emph{EvoSuite} e na seção \ref{MetaHeuristicas} é apresentado um referencial de meta-heurísticas.
 
 
-
-\section{Referencial EvoSuite}
+\section{Referencial EvoSuite} \label{ReferencialEvoSuite}
 
 \textit{EvoSuite} é uma ferramenta que automatiza a geração de suítes de testes com alta taxa de cobertura, pequenas o suficiente e fornece asserções. Ele gera as suítes de testes tantos para classes individuais quanto para projetos inteiros, sem requerer comandos complicados adicionais. Esta ferramenta é livre, e pode ser usada em linha de comando ou como  plugins para da plataformas de desenvolvimento como por exemplo o Eclipse\footnote{http://www.evosuite.org/downloads/} \cite{fraser2011evosuite}.
 
@@ -125,15 +95,16 @@ Para determinar a importância e efetividade das asserções, o \textit{EvoSuite
 
 \subsection{Resultados do \textit{EvoSuite}}
 
-\citeauthor{fraser20151600} testaram 100 projetos de código aberto selecionados randomicamente no \textit{EvoSuite} a fim de avaliarem a escalabilidade quando existem vários testes. Neste trabalho é mostrado que o \textit{EvoSuite} é capaz de exercitar oráculos automatizados e produzir alta cobertura de testes ao mesmo tempo. Nos experimentos foram encontrados 32594 falhas distintas em 8844 classes, o que pode pode ser considerado pelo menos 1694 como falhas reais \cite{fraser20151600}.
+Em \cite{fraser2011evosuite} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca anteriores. Neste trabalho foram testados 6 bibliotecas de estudo de casos no \textit{EvoSuite}, e a média de cobertura obtida foi superior, quando comparado com a abordagem padrão de um único critério de cobertura por vez.
+
+Já em \cite{fraser20151600}, foram testados 100 projetos de código aberto selecionados aleatoriamente no \textit{EvoSuite}, a fim de avaliar a escalabilidade quando existem vários testes. Os autores mostram que o \textit{EvoSuite} é capaz de exercitar oráculos automatizados e produzir alta cobertura de testes ao mesmo tempo. Nos experimentos foram encontrados 32594 falhas distintas em 8844 classes, tal que 1694 dessas falhas podem ser consideradas como falhas reais \cite{fraser20151600}.
 
 
 \newpage
 
-\section{Meta-Heurísticas} 
+\section{Meta-Heurísticas} \label{MetaHeuristicas}
 
-Meta-heurística é um subcampo primário da otimização estocástica, a qual consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a
-melhor possível) para problemas reconhecidamente difíceis. \citeauthor{luke2009essentials} \cite{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos
+Meta-heurística é um subcampo primário da otimização estocástica, que consiste de algoritmos e técnicas que empregam algum grau de aleatoriedade para encontrar a solução ótima (ou a melhor possível) para problemas reconhecidamente difíceis. \cite{luke2009essentials} \cite{luke2009essentials} ressalva que meta-heurística é um termo que pode gerar desentendimentos
 uma vez que não se trata de heuristica sobre (ou para) heurísticas, o que não é necessariamente verdade para todos os algoritmos.  
 
 As próximas secções descrevem as meta-heurísticas que iremos utiliza ou tentar utilizar no problema de teste de software com o \textit{Evosuite}.
@@ -260,12 +231,12 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
 
     A Busca Tabu é uma busca local que permite movimentos que podem não melhorar a solução atual. Para evitar ciclos, existe um mecanismo chamado lista tabu onde os últimos movimentos realizados
     ficam armazenados por um dado número de iterações, chamado \textit{tenure}. Os movimentos que estão na lista de tabus ficam proibidos, a menos que um dado critério de aspiração seja
-    satisfeito. Caso um critério de aspiração seja satisfeito o movimento é permitido. A heurística foi originalmente proposta por \citeauthor{glover1986future} \cite{glover1986future} e nos
+    satisfeito. Caso um critério de aspiração seja satisfeito o movimento é permitido. A heurística foi originalmente proposta por \cite{glover1986future} \cite{glover1986future} e nos
     últimos 20 anos centenas de artigos utilizam Busca Tabu em diversos problemas de combinatória e mostrando ser bastante eficaz com resultados bem próximos do ótimo ou conseguindo o ótimo
     \cite{gendreau2010handbook}.
 
     Na Busca Tabu precisamos definir muito bem o espaço de busca e a estrutura da vizinhança. Definir os critérios da restrição de movimentos. Pode ser complicado deixar a metaheuristica
-    suficientemente genética para ser usada no framework EvoSuite, porém podemos pensar em casos não muito gerais e aplicar mecanismos de busca por intensificação e por diversidade.
+    suficientemente genética para ser usada no \emph{EvoSuite}, porém podemos pensar em casos não muito gerais e aplicar mecanismos de busca por intensificação e por diversidade.
 
 
     \subsubsection{Intensificação}
@@ -299,11 +270,7 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
         reiniciada são colocados os $t$ movimentos mais frequentes no tabu, colocando primeiro o menos frequente e por o último o mais frequente. A frequência é calculada somando 1 cada vez
         que o movimento é realizado pelo operador de busca local. A frequência não é reiniciada quando a busca recomeça. Quando a busca reinicia uma nova solução inicial é construída.
 
+\bibliography{general}{}
+\bibliographystyle{plain}
 
-\section{Metodologia}
-
-
-\printbibliography
 \end{document}
-
-
