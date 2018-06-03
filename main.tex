@@ -38,7 +38,7 @@ email address}
 
 \begin{abstract}
 
-Esse artigo apresenta alguns conceitos de teste de software baseados busca, principalmente com o uso de meta-heurísticas. É apresentado então alguns conceitos do \emph{EvoSuite}, uma ferramenta para geração automatizada de casos de teste, assim como algumas meta-heurísticas que podem ser implementadas dentro do \emph{EvoSuite} para realizar as buscas dos casos de teste.
+Nesse artigo são apresentados alguns conceitos de teste de software baseados busca, principalmente com o uso de meta-heurísticas. Mais ainda, é dada uma breve introdução ao \emph{EvoSuite}, uma ferramenta para geração automatizada de casos de teste, assim como uma introdução á algumas meta-heurísticas que podem ser implementadas dentro do \emph{EvoSuite} para realizar as buscas dos casos de teste.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -54,19 +54,21 @@ Alguns exemplos de aplicações de funções de fitness, presentes em \cite{McMi
 \begin{itemize}
 \item Testes temporais: busca aproximar os tempos de execução para o melhor e pior caso para componentes de um sistema. Uma forma de modelar esse problema como teste baseado em buscas, é definindo a função de fitness como sendo o tempo de execução do componente, para uma dada entrada. Para melhorar a qualidade dos atributos encontrados pela busca, pode ser utilizada análise estática.
 
-\item Testes funcionais: busca testar a funcionalidade de componentes de um sistema. Um exemplo de teste funcional baseado em busca é dado em \cite{Buhler:2003}, \cite{Buhler:2008}, onde foi testado um sistema de estacionamento que identifica uma vaga de etacionamento e automaticamente manobra o carro para estacioná-lo na vaga sem causar colisões. A função de fitness usada foi então a distância mínima até um ponto de colisão, onde o objetivo era então minimizar essa distância, para detectar possíveis falhas no sistema.
+\item Testes funcionais: busca testar a funcionalidade de componentes de um sistema. Um exemplo de teste funcional baseado em busca é dado em \cite{Buhler:2003}, \cite{Buhler:2008}, onde foi testado um sistema de estacionamento que identifica uma vaga de estacionamento e automaticamente manobra o carro para estacioná-lo na vaga sem causar colisões. A função de fitness usada foi então a distância mínima até um ponto de colisão, onde o objetivo era então minimizar essa distância, para detectar possíveis falhas no sistema.
 
 \item Testes estruturais: foi a origem de testes baseados em busca, apresentada em \cite{Miller:1976}, e é a área de aplicação que mais vem atraindo atenção em testes baseados em busca. Alguns dos testes estruturais aos quais já foram desenvolvidas funções de fitness na literatura, é cobertura de caminhos (\emph{path coverage}, cobertura de ramos (\emph{branch coverage}) e cobertura de fluxo de dados (\emph{data flow coverage}). Para testes de cobertura de ramos, por exemplo, pode ser utilizada uma função de fitness dada pela normalização da distância de um dado nó da árvore do programa até o primeiro nó onde ocorre a divergência do possível caminho até o nó dado.
 \end{itemize}
 
-Alguns problemas em aberto e direções para pesquisas futuras em teste de software baseado em busca, são apresentados em \cite{McMinn:2011}:
+%Alguns problemas em aberto e direções para pesquisas futuras em teste de software baseado em busca, são apresentados em \cite{McMinn:2011}:
 
-\begin{itemize}
-    \item Lidar com o ambiente de execução: O estado-da-arte atual ignora o ambiente de execução do software, ao propor as técnicas de teste baseado em busca. 
+%\begin{itemize}
+%    \item Lidar com o ambiente de execução: O estado-da-arte atual ignora o ambiente de execução do software, ao propor as técnicas de teste baseado em busca. 
     
-    \item 
+%    \item Abordagens avançadas para melhorar a testabilidade: Pelo fato das funções de fitness serem heurísticas, nem sempre elas conseguem guiar a busca da solução de forma adequada. Dado esse cenário, o que então pode ser feito para melhorar a busca?
     
-\end{itemize}
+%    \item Oráculos automatizados por meio de transformação ode testabilidade: 
+    
+%\end{itemize}
 
 Em 2011, \cite{fraser2011evosuite} propuseram a ferramenta \emph{EvoSuite}, uma ferramenta para geração automatizada de casos de teste que utiliza algoritmos de busca. A meta-heurística utilizada pelos autores para os experimentos foi um algoritmo genético. O objetivo do artigo presente é apresentar algumas informações relevantes da ferramenta \emph{EvoSuite} e de meta-heurísticas que podem ser utilizadas juntamente com o \emph{EvoSuite} para geração de caso, para em uma pesquisa futura, realizar testes de qual é o comportamento do \emph{EvoSuite} ao se utilizar diferentes heurísticas. O artigo está organizado da seguinte forma, na presente Seção foi dada uma introdução, na Seção \ref{ReferencialEvoSuite} é apresentado um referencial do \emph{EvoSuite} e na seção \ref{MetaHeuristicas} é apresentado um referencial de meta-heurísticas.
 
@@ -95,12 +97,21 @@ Para determinar a importância e efetividade das asserções, o \textit{EvoSuite
 
 \subsection{Resultados do \textit{EvoSuite}}
 
-Em \cite{fraser2011evosuite} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca anteriores. Neste trabalho foram testados 6 bibliotecas de estudo de casos no \textit{EvoSuite}, e a média de cobertura obtida foi superior, quando comparado com a abordagem padrão de um único critério de cobertura por vez.
+Em \cite{fraser2013whole} é mostrado que a implementação de \textit{whole test suite generation} como método de busca no \textit{EvoSuite} apresenta um melhoramento significante em comparação com outros métodos de busca anteriores. Neste trabalho foram testados 6 bibliotecas de estudo de casos no \textit{EvoSuite}, e a média de cobertura obtida foi superior, quando comparado com a abordagem padrão de um único critério de cobertura por vez.
+
+\begin{figure}[!htb]
+  \centering
+  \caption{Média de cobertura do EvoSuite em comparação com abordagem padrão de um único critério de cobertura por vez (Single).}
+  \includegraphics[scale=0.7]{imagens/imagem1.png}
+  \label{figura_cobertura}
+  \legend{Fonte: %\cite{fraser2011evosuite} 
+  }
+\end{figure}
 
 Já em \cite{fraser20151600}, foram testados 100 projetos de código aberto selecionados aleatoriamente no \textit{EvoSuite}, a fim de avaliar a escalabilidade quando existem vários testes. Os autores mostram que o \textit{EvoSuite} é capaz de exercitar oráculos automatizados e produzir alta cobertura de testes ao mesmo tempo. Nos experimentos foram encontrados 32594 falhas distintas em 8844 classes, tal que 1694 dessas falhas podem ser consideradas como falhas reais \cite{fraser20151600}.
 
 
-\newpage
+% \newpage
 
 \section{Meta-Heurísticas} \label{MetaHeuristicas}
 
