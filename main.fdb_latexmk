@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1528063855 "main.aux" "main.bbl" "main" 1528063941
+["bibtex main"] 1528064253 "main.aux" "main.bbl" "main" 1528064256
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "general.bib" 1528063574 5855 0209165d4df97fac8dfd497de405ca58 ""
-  "main.aux" 1528063941 5714 2c814c8067320f190901ed715f487ce1 ""
+  "main.aux" 1528064256 5609 2764d06593c2c01c3a0ff9a83079e63b ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1528063940 "main.tex" "main.pdf" "main" 1528063941
+["pdflatex"] 1528064256 "main.tex" "main.pdf" "main" 1528064256
   "/etc/texmf/web2c/texmf.cnf" 1526672357 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
@@ -101,9 +101,9 @@
   "imagens/busca-tabu.png" 1528062374 61743 d302969d1b234b463913fa511a7293ee ""
   "imagens/grasp.png" 1528062374 12932 951bff3e6b7ada5e9ecab0069ab9497a ""
   "imagens/imagem1.png" 1528059655 15344 1074af908bd0066d7c7fe8c997fbffca ""
-  "main.aux" 1528063941 5714 2c814c8067320f190901ed715f487ce1 ""
-  "main.bbl" 1528063855 4264 d0af226a5d10bfa9089a74c843a59503 "bibtex main"
-  "main.tex" 1528063938 27146 9865ed1108588bdc64997816c34e8890 ""
+  "main.aux" 1528064256 5609 2764d06593c2c01c3a0ff9a83079e63b ""
+  "main.bbl" 1528064253 4264 d0af226a5d10bfa9089a74c843a59503 "bibtex main"
+  "main.tex" 1528064255 27407 414d704593b62e915d9919443ad6394b ""
   (generated)
   "main.pdf"
   "main.log"

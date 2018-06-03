@@ -127,7 +127,7 @@ importante é a quantidade de feromônio depositado pelas formigas que dá a vis
 elas estão percorrendo.
 
 
-Na Figura \ref{figura_ant} mostra toda o processo da meta-heurística colônia de formigas. Basicamente a busca das formigas por uma caminho fica em um laço pela quantidade de feromônio e caso
+Na Figura \ref{figura_ant} mostra todo o processo da meta-heurística colônia de formigas. Basicamente a busca das formigas por um caminho fica em um laço pela quantidade dada de feromônio e caso
 encontre uma solução que seja o menor caminho, então para.
 
 \begin{figure}[!htb]
@@ -215,9 +215,9 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
   \centering
  
   \includegraphics[scale=0.08]{imagens/brkga.jpg}
-  \label{figura_brkga}
  \caption{Imagem mostrando o fluxo da meta-heurística BRKGA. \cite{gonccalves2014experimental}}
  %\legend{Fonte: %\cite{fraser2011evosuite} }
+  \label{figura_brkga}
 \end{figure}
 
     De forma resumida, a definição de algumas características do BRKGA: 
@@ -244,14 +244,17 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
     solução inicial até atingir um mínimo local do espaço de soluções. Após um critério de parada como quantidade de iterações ou tempo de processamento o GRASP devolve a melhor solução
     encontrada e termina sua execução.
 
+    Na Figura \ref{figura_grasp} temos todo o processo da meta-heurística GRASP. Primeiro existe a fase de construção que pode ser gulosa ou aleatória, após o método de busca local e fica
+    neste processo até um critério de parada seja satisfeito.
+
 
     \begin{figure}[!htb]
   \centering
  
   \includegraphics[scale=0.35]{imagens/grasp.png}
-  \label{figura_grasp}
- \caption{Imagem ilustrativa de todo o processo da meta-heurística GRASP. \cite{fraser2013whole}}
+ \caption{Fluxo de todo o processo da meta-heurística GRASP. \cite{gonccalves2014experimental}}
  %\legend{Fonte: %\cite{fraser2011evosuite} }
+  \label{figura_grasp}
 \end{figure}
 
     Algumas variações que podem ser aplicadas:
@@ -283,9 +286,9 @@ seleção passam por operações genéticas (cruzamentos e mutações), simuland
   \centering
  
   \includegraphics[scale=0.25]{imagens/busca-tabu.png}
-  \label{figura_tabu}
  \caption{Imagem ilustrativa de todo o processo da meta-heurística Busca Tabu. \cite{fraser2013whole}}
  %\legend{Fonte: %\cite{fraser2011evosuite} }
+  \label{figura_tabu}
 \end{figure}
 
     \subsubsection{Intensificação}
